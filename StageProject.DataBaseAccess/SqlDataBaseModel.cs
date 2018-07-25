@@ -14,6 +14,7 @@ namespace StageProject.DataBaseAccess
 
         public virtual DbSet<Cliente> Cliente { get; set; }
         public virtual DbSet<Endereco> Endereco { get; set; }
+        public virtual DbSet<Telefone> Telefone { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -23,11 +24,7 @@ namespace StageProject.DataBaseAccess
 
             modelBuilder.Entity<Cliente>()
                 .Property(e => e.Nome)
-                .IsUnicode(false);
-
-            modelBuilder.Entity<Endereco>()
-                .Property(e => e.CodigoCliente)
-                .IsUnicode(false);
+                .IsUnicode(false);           
 
             modelBuilder.Entity<Endereco>()
                 .Property(e => e.IDEndereco)

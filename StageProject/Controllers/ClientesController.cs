@@ -10,107 +10,107 @@ using StageProject.DataBaseAccess;
 
 namespace StageProject.Controllers
 {
-    public class EnderecoController : Controller
+    public class ClientesController : Controller
     {
         private SqlDataBaseModel db = new SqlDataBaseModel();
 
-        // GET: Endereco
+        // GET: Clientes
         public ActionResult Index()
         {
-            return View(db.Endereco.ToList());
+            return View(db.Cliente.ToList());
         }
 
-        // GET: Endereco/Details/5
+        // GET: Clientes/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Endereco endereco = db.Endereco.Find(id);
-            if (endereco == null)
+            Cliente cliente = db.Cliente.Find(id);
+            if (cliente == null)
             {
                 return HttpNotFound();
             }
-            return View(endereco);
+            return View(cliente);
         }
 
-        // GET: Endereco/Create
+        // GET: Clientes/Create
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: Endereco/Create
+        // POST: Clientes/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,CodigoCliente,IDEndereco,TipoLogradouro,NomeLogradouro,Complemento,CEP,Bairro,Cidade")] Endereco endereco)
+        public ActionResult Create([Bind(Include = "Id,CodigoCliente,TipoCliente,Nome,Idade,EstadoCivil,Genero")] Cliente cliente)
         {
             if (ModelState.IsValid)
             {
-                db.Endereco.Add(endereco);
+                db.Cliente.Add(cliente);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            return View(endereco);
+            return View(cliente);
         }
 
-        // GET: Endereco/Edit/5
+        // GET: Clientes/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Endereco endereco = db.Endereco.Find(id);
-            if (endereco == null)
+            Cliente cliente = db.Cliente.Find(id);
+            if (cliente == null)
             {
                 return HttpNotFound();
             }
-            return View(endereco);
+            return View(cliente);
         }
 
-        // POST: Endereco/Edit/5
+        // POST: Clientes/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,CodigoCliente,IDEndereco,TipoLogradouro,NomeLogradouro,Complemento,CEP,Bairro,Cidade")] Endereco endereco)
+        public ActionResult Edit([Bind(Include = "Id,CodigoCliente,TipoCliente,Nome,Idade,EstadoCivil,Genero")] Cliente cliente)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(endereco).State = EntityState.Modified;
+                db.Entry(cliente).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(endereco);
+            return View(cliente);
         }
 
-        // GET: Endereco/Delete/5
+        // GET: Clientes/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Endereco endereco = db.Endereco.Find(id);
-            if (endereco == null)
+            Cliente cliente = db.Cliente.Find(id);
+            if (cliente == null)
             {
                 return HttpNotFound();
             }
-            return View(endereco);
+            return View(cliente);
         }
 
-        // POST: Endereco/Delete/5
+        // POST: Clientes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Endereco endereco = db.Endereco.Find(id);
-            db.Endereco.Remove(endereco);
+            Cliente cliente = db.Cliente.Find(id);
+            db.Cliente.Remove(cliente);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

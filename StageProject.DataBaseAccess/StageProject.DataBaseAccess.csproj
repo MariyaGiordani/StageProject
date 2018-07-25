@@ -51,8 +51,14 @@
   <ItemGroup>
     <Compile Include="Cliente.cs" />
     <Compile Include="Endereco.cs" />
+    <Compile Include="Enum\EnumEstadoCivil.cs" />
+    <Compile Include="Enum\EnumGenero.cs" />
+    <Compile Include="Enum\EnumTipoCliente.cs" />
+    <Compile Include="Enum\EnumTipoLogradouro.cs" />
+    <Compile Include="Enum\EnumTipoTelefone.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlDataBaseModel.cs" />
+    <Compile Include="Telefone.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

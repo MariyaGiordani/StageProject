@@ -1,5 +1,6 @@
 namespace StageProject.DataBaseAccess
 {
+    using StageProject.DataBaseAccess.Enum;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
@@ -11,14 +12,13 @@ namespace StageProject.DataBaseAccess
     {
         public int Id { get; set; }
 
-        [Required]
-        public string CodigoCliente { get; set; }
+        public int? Cliente_Id { get; set; }
 
         [Required]
         [StringLength(500)]
         public string IDEndereco { get; set; }
 
-        public int TipoLogradouro { get; set; }
+        public EnumTipoLogradouro TipoLogradouro { get; set; }
 
         [Required]
         public string NomeLogradouro { get; set; }
@@ -34,5 +34,7 @@ namespace StageProject.DataBaseAccess
 
         [Required]
         public string Cidade { get; set; }
+
+        public virtual Cliente Cliente { get; set; }
     }
 }
