@@ -12,15 +12,16 @@ namespace StageProject.Controllers
 {
     public class EnderecosController : Controller
     {
-        private SqlDataBaseModel db = new SqlDataBaseModel();
+        private SqlDatabaseModel db = new SqlDatabaseModel();
 
-        // GET: Enderecos
+        // GET: Enderecoes
         public ActionResult Index()
         {
-            return View(db.Endereco.ToList());
+            var endereco = db.Endereco.Include(e => e.Cliente);
+            return View(endereco.ToList());
         }
 
-        // GET: Enderecos/Details/5
+        // GET: Enderecoes/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -35,18 +36,19 @@ namespace StageProject.Controllers
             return View(endereco);
         }
 
-        // GET: Enderecos/Create
+        // GET: Enderecoes/Create
         public ActionResult Create()
         {
+            ViewBag.Cliente_Id = new SelectList(db.Cliente, "Id", "CodigoCliente");
             return View();
         }
 
-        // POST: Enderecos/Create
+        // POST: Enderecoes/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Cliente_Id,IDEndereco,TipoLogradouro,NomeLogradouro,Complemento,CEP,Bairro,Cidade,Client_Id")] Endereco endereco)
+        public ActionResult Create([Bind(Include = "Id,Cliente_Id,IDEndereco,TipoLogradouro,NomeLogradouro,Complemento,CEP,Bairro,Cidade")] Endereco endereco)
         {
             if (ModelState.IsValid)
             {
@@ -55,10 +57,11 @@ namespace StageProject.Controllers
                 return RedirectToAction("Index");
             }
 
+            ViewBag.Cliente_Id = new SelectList(db.Cliente, "Id", "CodigoCliente", endereco.Cliente_Id);
             return View(endereco);
         }
 
-        // GET: Enderecos/Edit/5
+        // GET: Enderecoes/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
@@ -70,15 +73,16 @@ namespace StageProject.Controllers
             {
                 return HttpNotFound();
             }
+            ViewBag.Cliente_Id = new SelectList(db.Cliente, "Id", "CodigoCliente", endereco.Cliente_Id);
             return View(endereco);
         }
 
-        // POST: Enderecos/Edit/5
+        // POST: Enderecoes/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Cliente_Id,IDEndereco,TipoLogradouro,NomeLogradouro,Complemento,CEP,Bairro,Cidade,Client_Id")] Endereco endereco)
+        public ActionResult Edit([Bind(Include = "Id,Cliente_Id,IDEndereco,TipoLogradouro,NomeLogradouro,Complemento,CEP,Bairro,Cidade")] Endereco endereco)
         {
             if (ModelState.IsValid)
             {
@@ -86,10 +90,11 @@ namespace StageProject.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
+            ViewBag.Cliente_Id = new SelectList(db.Cliente, "Id", "CodigoCliente", endereco.Cliente_Id);
             return View(endereco);
         }
 
-        // GET: Enderecos/Delete/5
+        // GET: Enderecoes/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
@@ -104,7 +109,7 @@ namespace StageProject.Controllers
             return View(endereco);
         }
 
-        // POST: Enderecos/Delete/5
+        // POST: Enderecoes/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

@@ -11,6 +11,7 @@
     <AssemblyName>StageProject.DataBaseAccess</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -57,7 +58,7 @@
     <Compile Include="Enum\EnumTipoLogradouro.cs" />
     <Compile Include="Enum\EnumTipoTelefone.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SqlDataBaseModel.cs" />
+    <Compile Include="SqlDatabaseModel.cs" />
     <Compile Include="Telefone.cs" />
   </ItemGroup>
   <ItemGroup>
