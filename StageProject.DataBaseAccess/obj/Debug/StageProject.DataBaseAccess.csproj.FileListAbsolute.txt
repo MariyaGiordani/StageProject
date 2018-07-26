@@ -1,0 +1,12 @@
+C:\gitAlternativo\Mariya\StageProject\StageProject.DataBaseAccess\bin\Debug\StageProject.DataBaseAccess.dll.config
+C:\gitAlternativo\Mariya\StageProject\StageProject.DataBaseAccess\bin\Debug\StageProject.DataBaseAccess.dll
+C:\gitAlternativo\Mariya\StageProject\StageProject.DataBaseAccess\bin\Debug\StageProject.DataBaseAccess.pdb
+C:\gitAlternativo\Mariya\StageProject\StageProject.DataBaseAccess\bin\Debug\EntityFramework.dll
+C:\gitAlternativo\Mariya\StageProject\StageProject.DataBaseAccess\bin\Debug\EntityFramework.SqlServer.dll
+C:\gitAlternativo\Mariya\StageProject\StageProject.DataBaseAccess\bin\Debug\EntityFramework.xml
+C:\gitAlternativo\Mariya\StageProject\StageProject.DataBaseAccess\bin\Debug\EntityFramework.SqlServer.xml
+C:\gitAlternativo\Mariya\StageProject\StageProject.DataBaseAccess\obj\Debug\StageProject.DataBaseAccess.csproj.CoreCompileInputs.cache
+C:\gitAlternativo\Mariya\StageProject\StageProject.DataBaseAccess\obj\Debug\StageProject.DataBaseAccess.csproj.CopyComplete
+C:\gitAlternativo\Mariya\StageProject\StageProject.DataBaseAccess\obj\Debug\StageProject.DataBaseAccess.dll
+C:\gitAlternativo\Mariya\StageProject\StageProject.DataBaseAccess\obj\Debug\StageProject.DataBaseAccess.pdb
+C:\gitAlternativo\Mariya\StageProject\StageProject.DataBaseAccess\obj\Debug\StageProject.DataBaseAccess.csprojAssemblyReference.cache

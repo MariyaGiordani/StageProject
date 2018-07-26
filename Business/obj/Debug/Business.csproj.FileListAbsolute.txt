@@ -1,0 +1,6 @@
+C:\gitAlternativo\Mariya\StageProject\Business\bin\Debug\Business.dll
+C:\gitAlternativo\Mariya\StageProject\Business\bin\Debug\Business.pdb
+C:\gitAlternativo\Mariya\StageProject\Business\obj\Debug\Business.csproj.CoreCompileInputs.cache
+C:\gitAlternativo\Mariya\StageProject\Business\obj\Debug\Business.dll
+C:\gitAlternativo\Mariya\StageProject\Business\obj\Debug\Business.pdb
+C:\gitAlternativo\Mariya\StageProject\Business\obj\Debug\Business.csprojAssemblyReference.cache
