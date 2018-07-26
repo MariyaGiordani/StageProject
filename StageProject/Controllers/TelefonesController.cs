@@ -10,112 +10,112 @@ using StageProject.DataBaseAccess;
 
 namespace StageProject.Controllers
 {
-    public class EnderecosController : Controller
+    public class TelefonesController : Controller
     {
         private SqlDatabaseModel db = new SqlDatabaseModel();
 
-        // GET: Enderecos
+        // GET: Telefones
         public ActionResult Index()
         {
-            var endereco = db.Endereco.Include(e => e.Cliente);
-            return View(endereco.ToList());
+            var telefone = db.Telefone.Include(t => t.Cliente);
+            return View(telefone.ToList());
         }
 
-        // GET: Enderecos/Details/5
+        // GET: Telefones/Details/5
         public ActionResult Details(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Endereco endereco = db.Endereco.Find(id);
-            if (endereco == null)
+            Telefone telefone = db.Telefone.Find(id);
+            if (telefone == null)
             {
                 return HttpNotFound();
             }
-            return View(endereco);
+            return View(telefone);
         }
 
-        // GET: Enderecos/Create
+        // GET: Telefones/Create
         public ActionResult Create()
         {
-            ViewBag.Cliente_Id = new SelectList(db.Cliente, "Id", "CodigoCliente");
+            ViewBag.IdCliente = new SelectList(db.Cliente, "Id", "CodigoCliente");
             return View();
         }
 
-        // POST: Enderecos/Create
+        // POST: Telefones/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Cliente_Id,IDEndereco,TipoLogradouro,NomeLogradouro,Complemento,CEP,Bairro,Cidade")] Endereco endereco)
+        public ActionResult Create([Bind(Include = "Id,TipoTelefone,Numero,IdCliente")] Telefone telefone)
         {
             if (ModelState.IsValid)
             {
-                db.Endereco.Add(endereco);
+                db.Telefone.Add(telefone);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.Cliente_Id = new SelectList(db.Cliente, "Id", "CodigoCliente", endereco.Cliente_Id);
-            return View(endereco);
+            ViewBag.IdCliente = new SelectList(db.Cliente, "Id", "CodigoCliente", telefone.IdCliente);
+            return View(telefone);
         }
 
-        // GET: Enderecos/Edit/5
+        // GET: Telefones/Edit/5
         public ActionResult Edit(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Endereco endereco = db.Endereco.Find(id);
-            if (endereco == null)
+            Telefone telefone = db.Telefone.Find(id);
+            if (telefone == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.Cliente_Id = new SelectList(db.Cliente, "Id", "CodigoCliente", endereco.Cliente_Id);
-            return View(endereco);
+            ViewBag.IdCliente = new SelectList(db.Cliente, "Id", "CodigoCliente", telefone.IdCliente);
+            return View(telefone);
         }
 
-        // POST: Enderecos/Edit/5
+        // POST: Telefones/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Cliente_Id,IDEndereco,TipoLogradouro,NomeLogradouro,Complemento,CEP,Bairro,Cidade")] Endereco endereco)
+        public ActionResult Edit([Bind(Include = "Id,TipoTelefone,Numero,IdCliente")] Telefone telefone)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(endereco).State = EntityState.Modified;
+                db.Entry(telefone).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.Cliente_Id = new SelectList(db.Cliente, "Id", "CodigoCliente", endereco.Cliente_Id);
-            return View(endereco);
+            ViewBag.IdCliente = new SelectList(db.Cliente, "Id", "CodigoCliente", telefone.IdCliente);
+            return View(telefone);
         }
 
-        // GET: Enderecos/Delete/5
+        // GET: Telefones/Delete/5
         public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Endereco endereco = db.Endereco.Find(id);
-            if (endereco == null)
+            Telefone telefone = db.Telefone.Find(id);
+            if (telefone == null)
             {
                 return HttpNotFound();
             }
-            return View(endereco);
+            return View(telefone);
         }
 
-        // POST: Enderecos/Delete/5
+        // POST: Telefones/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Endereco endereco = db.Endereco.Find(id);
-            db.Endereco.Remove(endereco);
+            Telefone telefone = db.Telefone.Find(id);
+            db.Telefone.Remove(telefone);
             db.SaveChanges();
             return RedirectToAction("Index");
         }

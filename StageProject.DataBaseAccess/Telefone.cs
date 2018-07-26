@@ -11,7 +11,7 @@ namespace StageProject.DataBaseAccess
     {
         public int Id { get; set; }
 
-        public int TipoTelefone { get; set; }
+        public EnumTipoTelefone TipoTelefone { get; set; }
 
         [Required]
         [StringLength(50)]
