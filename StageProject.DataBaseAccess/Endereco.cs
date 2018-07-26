@@ -35,6 +35,6 @@ namespace StageProject.DataBaseAccess
         [Required]
         public string Cidade { get; set; }
 
-        public virtual Cliente Cliente { get; set; }
+        public int Client_Id { get; set; }
     }
 }

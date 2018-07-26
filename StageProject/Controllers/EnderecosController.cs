@@ -46,7 +46,7 @@ namespace StageProject.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,IDEndereco,TipoLogradouro,NomeLogradouro,Complemento,CEP,Bairro,Cidade,Cliente_Id")] Endereco endereco)
+        public ActionResult Create([Bind(Include = "Id,Cliente_Id,IDEndereco,TipoLogradouro,NomeLogradouro,Complemento,CEP,Bairro,Cidade,Client_Id")] Endereco endereco)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +78,7 @@ namespace StageProject.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,IDEndereco,TipoLogradouro,NomeLogradouro,Complemento,CEP,Bairro,Cidade,Cliente_Id")] Endereco endereco)
+        public ActionResult Edit([Bind(Include = "Id,Cliente_Id,IDEndereco,TipoLogradouro,NomeLogradouro,Complemento,CEP,Bairro,Cidade,Client_Id")] Endereco endereco)
         {
             if (ModelState.IsValid)
             {
