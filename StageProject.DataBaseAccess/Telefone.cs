@@ -1,4 +1,3 @@
-﻿
 namespace StageProject.DataBaseAccess
 {
     using System;
@@ -8,20 +7,18 @@ namespace StageProject.DataBaseAccess
     using System.Data.Entity.Spatial;
 
     [Table("Telefone")]
-
     public partial class Telefone
     {
-        [Required]
         public int Id { get; set; }
 
-        [Required]
-        public EnumTipoTelefone TipoTelefone { get; set; }
+        public int TipoTelefone { get; set; }
 
         [Required]
         [StringLength(50)]
         public string Numero { get; set; }
 
         public int IdCliente { get; set; }
+
         public virtual Cliente Cliente { get; set; }
     }
 }

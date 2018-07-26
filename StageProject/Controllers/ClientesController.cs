@@ -12,7 +12,7 @@ namespace StageProject.Controllers
 {
     public class ClientesController : Controller
     {
-        private SqlDataBaseModel db = new SqlDataBaseModel();
+        private SqlDatabaseModel db = new SqlDatabaseModel();
 
         // GET: Clientes
         public ActionResult Index()

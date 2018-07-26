@@ -5,10 +5,10 @@ namespace StageProject.DataBaseAccess
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
 
-    public partial class SqlDataBaseModel : DbContext
+    public partial class SqlDatabaseModel : DbContext
     {
-        public SqlDataBaseModel()
-            : base("name=SqlDataBaseModel")
+        public SqlDatabaseModel()
+            : base("name=SqlDatabaseModel")
         {
         }
 
@@ -24,7 +24,18 @@ namespace StageProject.DataBaseAccess
 
             modelBuilder.Entity<Cliente>()
                 .Property(e => e.Nome)
-                .IsUnicode(false);           
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Cliente>()
+                .HasMany(e => e.Endereco)
+                .WithOptional(e => e.Cliente)
+                .HasForeignKey(e => e.Cliente_Id);
+
+            modelBuilder.Entity<Cliente>()
+                .HasMany(e => e.Telefone)
+                .WithRequired(e => e.Cliente)
+                .HasForeignKey(e => e.IdCliente)
+                .WillCascadeOnDelete(false);
 
             modelBuilder.Entity<Endereco>()
                 .Property(e => e.IDEndereco)
@@ -48,6 +59,10 @@ namespace StageProject.DataBaseAccess
 
             modelBuilder.Entity<Endereco>()
                 .Property(e => e.Cidade)
+                .IsUnicode(false);
+
+            modelBuilder.Entity<Telefone>()
+                .Property(e => e.Numero)
                 .IsUnicode(false);
         }
     }
