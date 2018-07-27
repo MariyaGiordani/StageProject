@@ -14,11 +14,17 @@ namespace StageProject.Controllers
     {
         private SqlDatabaseModel db = new SqlDatabaseModel();
 
+        public TelefonesController (SqlDatabaseModel _dbinstance)
+        {
+            db = _dbinstance;
+        }
+
         // GET: Telefones
         public ActionResult Index()
         {
             var telefone = db.Telefone.Include(t => t.Cliente);
-            return View(telefone.ToList());
+            IEnumerable<Telefone>telefones = telefone.ToList();
+            return View(telefones);
         }
 
         // GET: Telefones/Details/5

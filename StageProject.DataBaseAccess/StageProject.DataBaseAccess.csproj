@@ -57,6 +57,7 @@
     <Compile Include="Enum\EnumTipoCliente.cs" />
     <Compile Include="Enum\EnumTipoLogradouro.cs" />
     <Compile Include="Enum\EnumTipoTelefone.cs" />
+    <Compile Include="ISqlDatabaseModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlDatabaseModel.cs" />
     <Compile Include="Telefone.cs" />

@@ -12,7 +12,12 @@ namespace StageProject.Controllers
 {
     public class ClientesController : Controller
     {
-        private SqlDatabaseModel db = new SqlDatabaseModel();
+        private readonly SqlDatabaseModel db;// = new SqlDatabaseModel();
+
+        public ClientesController(SqlDatabaseModel _dbinstance)
+        {
+            db = _dbinstance;
+        }
 
         // GET: Clientes
         public ActionResult Index()

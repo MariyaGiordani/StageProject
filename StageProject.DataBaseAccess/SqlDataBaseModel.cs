@@ -5,7 +5,7 @@ namespace StageProject.DataBaseAccess
     using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
 
-    public partial class SqlDatabaseModel : DbContext
+    public partial class SqlDatabaseModel : DbContext, ISqlDatabaseModel
     {
         public SqlDatabaseModel()
             : base("name=SqlDatabaseModel")

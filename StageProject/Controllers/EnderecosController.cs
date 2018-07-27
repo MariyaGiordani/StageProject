@@ -14,6 +14,11 @@ namespace StageProject.Controllers
     {
         private SqlDatabaseModel db = new SqlDatabaseModel();
 
+        public EnderecosController(SqlDatabaseModel _dbinstance)
+        {
+            db = _dbinstance;
+        }
+
         // GET: Enderecos
         public ActionResult Index()
         {

@@ -186,6 +186,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="App_Start\UnityConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\ClientesController.cs" />
     <Compile Include="Controllers\EnderecosController.cs" />
@@ -265,9 +266,9 @@
     <Folder Include="Models\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Business\Business.csproj">
-      <Project>{4ae81eb5-92e8-4100-86b8-6eb168b0351b}</Project>
-      <Name>Business</Name>
+    <ProjectReference Include="..\StageProject.Business\StageProject.Business.csproj">
+      <Project>{bff04057-537b-429d-8693-e00dc3b3d0c4}</Project>
+      <Name>StageProject.Business</Name>
     </ProjectReference>
     <ProjectReference Include="..\StageProject.DataBaseAccess\StageProject.DataBaseAccess.csproj">
       <Project>{7f050192-bce6-47af-baba-c76d186d8473}</Project>
