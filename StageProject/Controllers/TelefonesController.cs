@@ -35,7 +35,7 @@ namespace StageProject.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Telefone telefone = db.Telefone.Find(id);
+            TelefoneViewModel telefone = _telefoneBusiness.Find(id);
             if (telefone == null)
             {
                 return HttpNotFound();

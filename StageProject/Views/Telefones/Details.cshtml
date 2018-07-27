@@ -1,4 +1,4 @@
-﻿@model StageProject.DataBaseAccess.Telefone
+﻿@model StageProject.Model.ViewModel.TelefoneViewModel
 
 @{
     ViewBag.Title = "Details";
@@ -10,13 +10,13 @@
     <h4>Telefone</h4>
     <hr />
     <dl class="dl-horizontal">
-        <dt>
+        @*<dt>
             @Html.DisplayNameFor(model => model.Cliente.CodigoCliente)
         </dt>
 
         <dd>
             @Html.DisplayFor(model => model.Cliente.CodigoCliente)
-        </dd>
+        </dd>*@
 
         <dt>
             @Html.DisplayNameFor(model => model.TipoTelefone)

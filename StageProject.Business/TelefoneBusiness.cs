@@ -58,5 +58,12 @@ namespace StageProject.Business
                 );
             return telefones;
         }
+
+        public TelefoneViewModel Find(int? id)
+        {
+            var telefoneId = db.Telefone.Where(t => t.Id == id).FirstOrDefault();
+            var idTelefone = ModelParse(telefoneId);
+            return idTelefone;
+        }
     }
 }
