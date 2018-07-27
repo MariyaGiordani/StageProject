@@ -38,19 +38,18 @@ namespace StageProject.Business
 
         public virtual ClienteBusiness Cliente { get; set; }
 
-        public EnderecoBusiness enderecoBusiness = new EnderecoBusiness();
-        public Endereco address = new Endereco();
+        
 
-        public void ConnectionAddress()
-        {
-            enderecoBusiness.Id = address.Id;
-            enderecoBusiness.IDEndereco = address.IDEndereco;
-            enderecoBusiness.TipoLogradouro = address.TipoLogradouro;
-            enderecoBusiness.NomeLogradouro = address.NomeLogradouro;
-            enderecoBusiness.Complemento = address.Complemento;
-            enderecoBusiness.CEP = address.CEP;
-            enderecoBusiness.Bairro = address.Bairro;
-            enderecoBusiness.Cidade = address.Cidade;
-        }
+        //public void ConnectionAddress()
+        //{
+        //    enderecoBusiness.Id = address.Id;
+        //    enderecoBusiness.IDEndereco = address.IDEndereco;
+        //    enderecoBusiness.TipoLogradouro = address.TipoLogradouro;
+        //    enderecoBusiness.NomeLogradouro = address.NomeLogradouro;
+        //    enderecoBusiness.Complemento = address.Complemento;
+        //    enderecoBusiness.CEP = address.CEP;
+        //    enderecoBusiness.Bairro = address.Bairro;
+        //    enderecoBusiness.Cidade = address.Cidade;
+        //}
     }
 }

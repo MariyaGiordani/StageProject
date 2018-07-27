@@ -34,17 +34,20 @@ namespace StageProject.Business
         [Display(Name = "Gender")]
         public EnumGenero Genero { get; set; }
 
-        public Cliente client = new Cliente();
-        public ClienteBusiness clienteBusiness = new ClienteBusiness();
-        public void ConnectionClient()
-        {
-            clienteBusiness.Id = client.Id;
-            clienteBusiness.TipoCliente = client.TipoCliente;
-            clienteBusiness.CodigoCliente = client.CodigoCliente;
-            clienteBusiness.Nome = client.Nome;
-            clienteBusiness.Idade = client.Idade;
-            clienteBusiness.EstadoCivil = client.EstadoCivil;
-            clienteBusiness.Genero = client.Genero;
-        }
+
+        //public void ModelParse()
+        //{
+        //    clienteBusiness.Id = client.Id;
+        //    clienteBusiness.TipoCliente = client.TipoCliente;
+        //    clienteBusiness.CodigoCliente = client.CodigoCliente;
+        //    clienteBusiness.Nome = client.Nome;
+        //    clienteBusiness.Idade = client.Idade;
+        //    clienteBusiness.EstadoCivil = client.EstadoCivil;
+        //    clienteBusiness.Genero = client.Genero;
+        //}
+
+        //public void DatabaseModelParse()
+        //{ }
+
     }
 }

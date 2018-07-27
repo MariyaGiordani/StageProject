@@ -24,8 +24,7 @@ namespace StageProject.Business
         public int IdCliente { get; set; }
         public virtual ClienteBusiness Cliente { get; set; }
 
-        public Telefone telefone = new Telefone();
-        public TelefoneBusiness telefoneBusiness = new TelefoneBusiness();
+        
 
         public void ConnectionTelefone()
         {
