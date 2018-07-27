@@ -1,4 +1,4 @@
-﻿namespace StageProject.DataBaseAccess
+﻿namespace StageProject.StageProject.Model.Enumeradores
 {
     public enum EnumTipoTelefone
     {

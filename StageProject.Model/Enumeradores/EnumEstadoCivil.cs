@@ -1,5 +1,5 @@
 ﻿
-namespace StageProject.DataBaseAccess.Enum
+namespace StageProject.Model.Enumeradores
 {
     public enum EnumEstadoCivil
     {

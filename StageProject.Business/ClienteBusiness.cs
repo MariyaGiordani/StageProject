@@ -1,5 +1,6 @@
 ﻿using StageProject.DataBaseAccess;
-using StageProject.DataBaseAccess.Enum;
+using StageProject.Model.Enumeradores;
+using StageProject.StageProject.Model.Enumeradores;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;

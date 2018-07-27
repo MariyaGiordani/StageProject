@@ -1,6 +1,6 @@
 namespace StageProject.DataBaseAccess
 {
-    using StageProject.DataBaseAccess.Enum;
+    using StageProject.Model.Enumeradores;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
@@ -18,7 +18,7 @@ namespace StageProject.DataBaseAccess
         [StringLength(500)]
         public string IDEndereco { get; set; }
         
-        public EnumTipoLogradouro TipoLogradouro { get; set; }
+        public StageProject.Model.Enumeradores.EnumTipoLogradouro TipoLogradouro { get; set; }
 
         [Required]
         public string NomeLogradouro { get; set; }

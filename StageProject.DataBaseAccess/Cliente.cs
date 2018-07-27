@@ -1,6 +1,6 @@
 namespace StageProject.DataBaseAccess
 {
-    using StageProject.DataBaseAccess.Enum;
+    using StageProject.Model.Enumeradores;   
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
@@ -30,7 +30,7 @@ namespace StageProject.DataBaseAccess
 
         public int Idade { get; set; }
         
-        public EnumEstadoCivil EstadoCivil { get; set; }
+        public Model.Enumeradores.EnumEstadoCivil EstadoCivil { get; set; }
 
         public EnumGenero Genero { get; set; }
 

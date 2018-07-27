@@ -1,4 +1,6 @@
 ﻿using StageProject.DataBaseAccess;
+using StageProject.Model.ViewModel;
+using StageProject.StageProject.Model.Enumeradores;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -8,29 +10,53 @@ using System.Threading.Tasks;
 
 namespace StageProject.Business
 {
-    public class TelefoneBusiness
+    public class TelefoneBusiness : ITelefoneBusiness
     {
-        [Display(Name = "Id")]
-        [Range(1, 99999)]
-        public int Id { get; set; }
-
-        [Display(Name = "Telefone type")]
-        public EnumTipoTelefone TipoTelefone { get; set; }
-
-        [Display(Name = "Number")]
-        public string Numero { get; set; }
-
-        [Display(Name = "Client Id")]
+        private SqlDatabaseModel db = new SqlDatabaseModel();
+        public int Id { get; set; }        
+        public EnumTipoTelefone TipoTelefone { get; set; }        
+        public string Numero { get; set; }        
         public int IdCliente { get; set; }
         public virtual ClienteBusiness Cliente { get; set; }
 
-        
-
-        public void ConnectionTelefone()
+        public TelefoneBusiness (SqlDatabaseModel _dbinstance)
         {
-            telefoneBusiness.IdCliente = telefone.IdCliente;
-            telefoneBusiness.TipoTelefone = telefone.TipoTelefone;
-            telefoneBusiness.Numero = telefone.Numero;
+            db = _dbinstance;
+        }        
+
+        public TelefoneViewModel ModelParse(Telefone telefone)
+        {
+            TelefoneViewModel tvm = new TelefoneViewModel();
+            tvm.Id = telefone.Id;
+            tvm.IdCliente = telefone.IdCliente;
+            tvm.TipoTelefone = telefone.TipoTelefone;
+            tvm.Numero = telefone.Numero;
+            return tvm;
+        }
+
+        public Telefone DatabaseModelParse(TelefoneViewModel telefoneBusiness)
+        {
+            Telefone telefone = new Telefone();
+            telefone.IdCliente = telefoneBusiness.IdCliente;
+            telefone.TipoTelefone = telefoneBusiness.TipoTelefone;
+            telefone.Numero = telefoneBusiness.Numero;
+            return telefone;
+        }
+
+        public List<TelefoneViewModel> Get()
+        {
+            //var telefone = db.Telefone.Include(t => t.Cliente);
+            var telefone = db.Telefone;
+            List<Telefone> telefonesdb = telefone.ToList();
+            List<TelefoneViewModel> telefones = new List<TelefoneViewModel>();
+            telefonesdb.ForEach(
+                (dbtelefone) =>
+                {
+                    var tvm = ModelParse(dbtelefone);
+                    telefones.Add(tvm);
+                }
+                );
+            return telefones;
         }
     }
 }

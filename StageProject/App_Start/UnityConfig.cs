@@ -1,4 +1,5 @@
-﻿using StageProject.DataBaseAccess;
+﻿using StageProject.Business;
+using StageProject.DataBaseAccess;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,6 +21,7 @@ namespace StageProject.App_Start
 
             // e.g. container.RegisterType<ITestService, TestService>();
             container.RegisterType<ISqlDatabaseModel, SqlDatabaseModel>();
+            container.RegisterType<ITelefoneBusiness, TelefoneBusiness>();
             DependencyResolver.SetResolver(new UnityDependencyResolver(container));
         }
     }

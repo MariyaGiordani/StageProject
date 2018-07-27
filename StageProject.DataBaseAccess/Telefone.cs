@@ -1,5 +1,6 @@
 namespace StageProject.DataBaseAccess
 {
+    using StageProject.Model.Enumeradores;
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
@@ -9,6 +10,9 @@ namespace StageProject.DataBaseAccess
     [Table("Telefone")]
     public partial class Telefone
     {
+        /// <summary>
+        /// identificador unico do telefone
+        /// </summary>
         public int Id { get; set; }
 
         public EnumTipoTelefone TipoTelefone { get; set; }

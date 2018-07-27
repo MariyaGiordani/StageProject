@@ -274,11 +274,18 @@
       <Project>{7f050192-bce6-47af-baba-c76d186d8473}</Project>
       <Name>StageProject.DataBaseAccess</Name>
     </ProjectReference>
+    <ProjectReference Include="..\StageProject.Model\StageProject.Model.csproj">
+      <Project>{e500f7fc-0ce6-430d-98ad-f9e2c7f3882e}</Project>
+      <Name>StageProject.Model</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.3.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.3.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

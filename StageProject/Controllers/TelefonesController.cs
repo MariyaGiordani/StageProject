@@ -6,24 +6,25 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using StageProject.Business;
 using StageProject.DataBaseAccess;
+using StageProject.Model.ViewModel;
 
 namespace StageProject.Controllers
 {
     public class TelefonesController : Controller
     {
-        private SqlDatabaseModel db = new SqlDatabaseModel();
+        private readonly ITelefoneBusiness _telefoneBusiness;
 
-        public TelefonesController (SqlDatabaseModel _dbinstance)
+        public TelefonesController (ITelefoneBusiness telefoneBusiness)
         {
-            db = _dbinstance;
+            _telefoneBusiness = telefoneBusiness;
         }
 
         // GET: Telefones
         public ActionResult Index()
         {
-            var telefone = db.Telefone.Include(t => t.Cliente);
-            IEnumerable<Telefone>telefones = telefone.ToList();
+            List<TelefoneViewModel> telefones = _telefoneBusiness.Get();
             return View(telefones);
         }
 
@@ -134,5 +135,8 @@ namespace StageProject.Controllers
             }
             base.Dispose(disposing);
         }
+
+
+        private SqlDatabaseModel db = new SqlDatabaseModel();
     }
 }

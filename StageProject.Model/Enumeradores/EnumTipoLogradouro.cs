@@ -1,4 +1,4 @@
-﻿namespace StageProject.DataBaseAccess.Enum
+﻿namespace StageProject.StageProject.Model.Enumeradores
 {
     public enum EnumTipoLogradouro
     {
