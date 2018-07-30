@@ -12,5 +12,7 @@ namespace StageProject.Business
         List<TelefoneViewModel> Get();
         TelefoneViewModel Find(int? id);
         void CreateNew(TelefoneViewModel telefone);
+        void EditNew(TelefoneViewModel telefone);
+        void DeleteExisting(int id);
     }
 }

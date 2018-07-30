@@ -74,7 +74,7 @@ namespace StageProject.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Telefone telefone = db.Telefone.Find(id);
+            TelefoneViewModel telefone = _telefoneBusiness.Find(id);
             if (telefone == null)
             {
                 return HttpNotFound();
@@ -88,12 +88,11 @@ namespace StageProject.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,TipoTelefone,Numero,IdCliente")] Telefone telefone)
+        public ActionResult Edit([Bind(Include = "Id,TipoTelefone,Numero,IdCliente")] TelefoneViewModel telefone)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(telefone).State = EntityState.Modified;
-                db.SaveChanges();
+                _telefoneBusiness.EditNew(telefone);
                 return RedirectToAction("Index");
             }
             ViewBag.IdCliente = new SelectList(db.Cliente, "Id", "CodigoCliente", telefone.IdCliente);
@@ -107,7 +106,7 @@ namespace StageProject.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Telefone telefone = db.Telefone.Find(id);
+            TelefoneViewModel telefone = _telefoneBusiness.Find(id);
             if (telefone == null)
             {
                 return HttpNotFound();
@@ -120,9 +119,7 @@ namespace StageProject.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Telefone telefone = db.Telefone.Find(id);
-            db.Telefone.Remove(telefone);
-            db.SaveChanges();
+            _telefoneBusiness.DeleteExisting(id);
             return RedirectToAction("Index");
         }
 

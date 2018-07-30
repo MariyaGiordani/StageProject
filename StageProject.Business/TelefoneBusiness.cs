@@ -4,6 +4,7 @@ using StageProject.StageProject.Model.Enumeradores;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -37,6 +38,7 @@ namespace StageProject.Business
         public Telefone DatabaseModelParse(TelefoneViewModel telefoneBusiness)
         {
             Telefone telefone = new Telefone();
+            telefone.Id = telefoneBusiness.Id;
             telefone.IdCliente = telefoneBusiness.IdCliente;
             telefone.TipoTelefone = telefoneBusiness.TipoTelefone;
             telefone.Numero = telefoneBusiness.Numero;
@@ -70,6 +72,20 @@ namespace StageProject.Business
         {
             var telefoneModel = DatabaseModelParse(telefone);
             db.Telefone.Add(telefoneModel);
+            db.SaveChanges();
+        }
+
+        public void EditNew(TelefoneViewModel telefone)
+        {
+            var telefoneModel = DatabaseModelParse(telefone);
+            db.Entry(telefoneModel).State = EntityState.Modified;
+            db.SaveChanges();
+        }
+
+        public void DeleteExisting(int id)
+        {
+            var idTelefone = db.Telefone.Where(t => t.Id == id).FirstOrDefault();
+            db.Telefone.Remove(idTelefone);
             db.SaveChanges();
         }
     }
