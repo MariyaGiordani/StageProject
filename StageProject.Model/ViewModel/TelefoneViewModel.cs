@@ -9,7 +9,6 @@ namespace StageProject.Model.ViewModel
     public class TelefoneViewModel
     {
         [Display(Name = "Id")]
-        [Range(1, 99999)]
         public int Id { get; set; }
 
         [Display(Name = "Telefone type")]

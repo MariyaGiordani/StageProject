@@ -11,6 +11,6 @@ namespace StageProject.Business
         TelefoneViewModel ModelParse(Telefone telefone);
         List<TelefoneViewModel> Get();
         TelefoneViewModel Find(int? id);
-        List<TelefoneViewModel> CreateNew(Telefone telefone);
+        void CreateNew(TelefoneViewModel telefone);
     }
 }

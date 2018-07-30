@@ -55,13 +55,11 @@ namespace StageProject.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,TipoTelefone,Numero,IdCliente")] Telefone telefone)
+        public ActionResult Create([Bind(Include = "Id,TipoTelefone,Numero,IdCliente")] TelefoneViewModel telefone)
         {
             if (ModelState.IsValid)
             {
-                //db.Telefone.Add(telefone);
-                //db.SaveChanges();
-                List<TelefoneViewModel> telefones = _telefoneBusiness.CreateNew(telefone);
+                _telefoneBusiness.CreateNew(telefone);
                 return RedirectToAction("Index");
             }
 
