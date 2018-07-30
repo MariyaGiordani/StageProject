@@ -61,7 +61,7 @@ namespace StageProject.Controllers
             {
                 //db.Telefone.Add(telefone);
                 //db.SaveChanges();
-                _telefoneBusiness.CreateNew(telefone);
+                List<TelefoneViewModel> telefones = _telefoneBusiness.CreateNew(telefone);
                 return RedirectToAction("Index");
             }
 
