@@ -59,8 +59,9 @@ namespace StageProject.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.Telefone.Add(telefone);
-                db.SaveChanges();
+                //db.Telefone.Add(telefone);
+                //db.SaveChanges();
+                _telefoneBusiness.CreateNew(telefone);
                 return RedirectToAction("Index");
             }
 
