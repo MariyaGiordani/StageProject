@@ -69,9 +69,11 @@ namespace StageProject.Business
         public List<TelefoneViewModel> CreateNew(Telefone telefone)
         {
             var telefoneModel = ModelParse(telefone);
-            List<TelefoneViewModel> telefones = new List<TelefoneViewModel>();
-            telefones.Add(telefoneModel);
-            return telefones;
+            // PAra que esta lista ?
+            //List<TelefoneViewModel> telefones = new List<TelefoneViewModel>();
+            // Onde esta o banco de dados ?
+            //telefones.Add(telefoneModel);
+            return telefoneModel;
         }
     }
 }
