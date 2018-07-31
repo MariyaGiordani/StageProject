@@ -8,7 +8,7 @@ namespace StageProject.Business
 {
     public interface ITelefoneBusiness
     {
-        Telefone DatabaseModelParse(TelefoneViewModel telefoneBusiness);
+        Telefone DatabaseModelParse(TelefoneViewModel telefoneModel);
         TelefoneViewModel ModelParse(Telefone telefone);
         List<TelefoneViewModel> Get();
         TelefoneViewModel Find(int? id);

@@ -35,13 +35,13 @@ namespace StageProject.Business
             return tvm;
         }
 
-        public Telefone DatabaseModelParse(TelefoneViewModel telefoneBusiness)
+        public Telefone DatabaseModelParse(TelefoneViewModel telefoneModel)
         {
             Telefone telefone = new Telefone();
-            telefone.Id = telefoneBusiness.Id;
-            telefone.IdCliente = telefoneBusiness.IdCliente;
-            telefone.TipoTelefone = telefoneBusiness.TipoTelefone;
-            telefone.Numero = telefoneBusiness.Numero;
+            telefone.Id = telefoneModel.Id;
+            telefone.IdCliente = telefoneModel.IdCliente;
+            telefone.TipoTelefone = telefoneModel.TipoTelefone;
+            telefone.Numero = telefoneModel.Numero;
             return telefone;
         }
 

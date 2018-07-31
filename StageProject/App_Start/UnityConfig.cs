@@ -22,6 +22,7 @@ namespace StageProject.App_Start
             // e.g. container.RegisterType<ITestService, TestService>();
             container.RegisterType<ISqlDatabaseModel, SqlDatabaseModel>();
             container.RegisterType<ITelefoneBusiness, TelefoneBusiness>();
+            container.RegisterType<IClienteBusiness, ClienteBusiness>();
             DependencyResolver.SetResolver(new UnityDependencyResolver(container));
         }
     }

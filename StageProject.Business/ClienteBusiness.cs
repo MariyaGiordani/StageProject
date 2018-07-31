@@ -1,54 +1,104 @@
 ﻿using StageProject.DataBaseAccess;
 using StageProject.Model.Enumeradores;
+using StageProject.Model.ViewModel;
 using StageProject.StageProject.Model.Enumeradores;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace StageProject.Business
 {
-    public class ClienteBusiness
+    public class ClienteBusiness : IClienteBusiness
     {
-        [Display(Name = "Id")]
-        [Range(1, 99999)]
+        private SqlDatabaseModel db = new SqlDatabaseModel();
         public int Id { get; set; }
-
-        [Display(Name = "Client Code")]
         public string CodigoCliente { get; set; }
-
-        [Display(Name = "Type of client")]
         public EnumTipoCliente TipoCliente { get; set; }
-
-        [Display(Name = "Name")]
         public string Nome { get; set; }
-
-        [Display(Name = "Age")]
-        [Range(1, 100)]
         public int Idade { get; set; }
-
-        [Display(Name = "Marital Status")]
         public EnumEstadoCivil EstadoCivil { get; set; }
-
-        [Display(Name = "Gender")]
         public EnumGenero Genero { get; set; }
 
+        public ClienteBusiness(SqlDatabaseModel _dbinstance)
+        {
+            db = _dbinstance;
+        }
 
-        //public void ModelParse()
-        //{
-        //    clienteBusiness.Id = client.Id;
-        //    clienteBusiness.TipoCliente = client.TipoCliente;
-        //    clienteBusiness.CodigoCliente = client.CodigoCliente;
-        //    clienteBusiness.Nome = client.Nome;
-        //    clienteBusiness.Idade = client.Idade;
-        //    clienteBusiness.EstadoCivil = client.EstadoCivil;
-        //    clienteBusiness.Genero = client.Genero;
-        //}
+        public ClientViewModel ModelParse(Cliente client)
+        {
+            ClientViewModel cvm = new ClientViewModel();
+            cvm.Id = client.Id;
+            cvm.TipoCliente = client.TipoCliente;
+            cvm.CodigoCliente = client.CodigoCliente;
+            cvm.Nome = client.Nome;
+            cvm.Idade = client.Idade;
+            cvm.EstadoCivil = client.EstadoCivil;
+            cvm.Genero = client.Genero;
+            return cvm;
+        }
 
-        //public void DatabaseModelParse()
-        //{ }
+        public Cliente DatabaseModelParse(ClientViewModel clientModel)
+        {
+            Cliente client = new Cliente();
+            client.Id = clientModel.Id;
+            client.TipoCliente = clientModel.TipoCliente;
+            client.CodigoCliente = clientModel.CodigoCliente;
+            client.Nome = clientModel.Nome;
+            client.Idade = clientModel.Idade;
+            client.EstadoCivil = clientModel.EstadoCivil;
+            client.Genero = clientModel.Genero;
+            return client;
+        }
+
+        public List<ClientViewModel> Get()
+        {
+            //var telefone = db.Telefone.Include(t => t.Cliente);
+            var client = db.Cliente;
+            List<Cliente> clientsdb = client.ToList();
+            List<ClientViewModel> clients = new List<ClientViewModel>();
+            clientsdb.ForEach(
+                (dbclient) =>
+                {
+                    var tvm = ModelParse(dbclient);
+                    clients.Add(tvm);
+                }
+                );
+            return clients;
+        }
+
+        public ClientViewModel Find(int? id)
+        {
+            var clientId = db.Cliente.Where(t => t.Id == id).FirstOrDefault();
+            var idClient = ModelParse(clientId);
+            return idClient;
+        }
+
+        public void CreateNew(ClientViewModel client)
+        {
+            var clientModel = DatabaseModelParse(client);
+            db.Cliente.Add(clientModel);
+            db.SaveChanges();
+        }
+
+        public void EditNew(ClientViewModel client)
+        {
+            var clientModel = DatabaseModelParse(client);
+            db.Entry(clientModel).State = EntityState.Modified;
+            db.SaveChanges();
+        }
+
+        public void DeleteExisting(int id)
+        {
+            var idClient = db.Cliente.Where(t => t.Id == id).FirstOrDefault();
+            db.Cliente.Remove(idClient);
+            var idTelefone = db.Telefone.Where(t => t.Id == id).FirstOrDefault();
+            db.Telefone.Remove(idTelefone);
+            db.SaveChanges();
+        }
 
     }
 }

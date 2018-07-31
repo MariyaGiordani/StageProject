@@ -6,23 +6,26 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using StageProject.Business;
 using StageProject.DataBaseAccess;
+using StageProject.Model.ViewModel;
 
 namespace StageProject.Controllers
 {
     public class ClientesController : Controller
     {
-        private readonly SqlDatabaseModel db;// = new SqlDatabaseModel();
+        private readonly IClienteBusiness _clientBusiness;
 
-        public ClientesController(SqlDatabaseModel _dbinstance)
+        public ClientesController(IClienteBusiness clientBusiness)
         {
-            db = _dbinstance;
+            _clientBusiness = clientBusiness;
         }
 
         // GET: Clientes
         public ActionResult Index()
         {
-            return View(db.Cliente.ToList());
+            List<ClientViewModel> clients = _clientBusiness.Get();
+            return View(clients);
         }
 
         // GET: Clientes/Details/5
@@ -32,12 +35,12 @@ namespace StageProject.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Cliente cliente = db.Cliente.Find(id);
-            if (cliente == null)
+            ClientViewModel client = _clientBusiness.Find(id);
+            if (client == null)
             {
                 return HttpNotFound();
             }
-            return View(cliente);
+            return View(client);
         }
 
         // GET: Clientes/Create
@@ -51,16 +54,15 @@ namespace StageProject.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,CodigoCliente,TipoCliente,Nome,Idade,EstadoCivil,Genero")] Cliente cliente)
+        public ActionResult Create([Bind(Include = "Id,CodigoCliente,TipoCliente,Nome,Idade,EstadoCivil,Genero")] ClientViewModel client)
         {
             if (ModelState.IsValid)
             {
-                db.Cliente.Add(cliente);
-                db.SaveChanges();
+                _clientBusiness.CreateNew(client);
                 return RedirectToAction("Index");
             }
 
-            return View(cliente);
+            return View(client);
         }
 
         // GET: Clientes/Edit/5
@@ -70,12 +72,12 @@ namespace StageProject.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Cliente cliente = db.Cliente.Find(id);
-            if (cliente == null)
+            ClientViewModel client = _clientBusiness.Find(id);
+            if (client == null)
             {
                 return HttpNotFound();
             }
-            return View(cliente);
+            return View(client);
         }
 
         // POST: Clientes/Edit/5
@@ -83,15 +85,14 @@ namespace StageProject.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,CodigoCliente,TipoCliente,Nome,Idade,EstadoCivil,Genero")] Cliente cliente)
+        public ActionResult Edit([Bind(Include = "Id,CodigoCliente,TipoCliente,Nome,Idade,EstadoCivil,Genero")] ClientViewModel client)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(cliente).State = EntityState.Modified;
-                db.SaveChanges();
+                _clientBusiness.EditNew(client);
                 return RedirectToAction("Index");
             }
-            return View(cliente);
+            return View(client);
         }
 
         // GET: Clientes/Delete/5
@@ -101,12 +102,12 @@ namespace StageProject.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Cliente cliente = db.Cliente.Find(id);
-            if (cliente == null)
+            ClientViewModel client = _clientBusiness.Find(id);
+            if (client == null)
             {
                 return HttpNotFound();
             }
-            return View(cliente);
+            return View(client);
         }
 
         // POST: Clientes/Delete/5
@@ -114,9 +115,7 @@ namespace StageProject.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Cliente cliente = db.Cliente.Find(id);
-            db.Cliente.Remove(cliente);
-            db.SaveChanges();
+            _clientBusiness.DeleteExisting(id);
             return RedirectToAction("Index");
         }
 
@@ -128,5 +127,7 @@ namespace StageProject.Controllers
             }
             base.Dispose(disposing);
         }
+
+        private readonly SqlDatabaseModel db = new SqlDatabaseModel();
     }
 }
