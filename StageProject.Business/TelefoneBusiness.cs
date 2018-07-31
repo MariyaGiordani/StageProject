@@ -18,7 +18,7 @@ namespace StageProject.Business
         public EnumTipoTelefone TipoTelefone { get; set; }        
         public string Numero { get; set; }        
         public int IdCliente { get; set; }
-        public virtual ClienteBusiness Cliente { get; set; }
+        public virtual ClienteBusiness ClienteBusiness { get; set; }
 
         public TelefoneBusiness (SqlDatabaseModel _dbinstance)
         {

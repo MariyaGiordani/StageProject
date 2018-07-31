@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Data.Entity;
 using StageProject.DataBaseAccess;
 using StageProject.Model.ViewModel;
 using StageProject.StageProject.Model.Enumeradores;
