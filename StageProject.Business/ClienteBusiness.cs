@@ -20,6 +20,9 @@ namespace StageProject.Business
         public EnumTipoCliente TipoCliente { get; set; }
         public string Nome { get; set; }
         public int Idade { get; set; }
+        public int NumeroAddresses { get; set; }
+        public int NumeroTelefones { get; set; }
+
         public EnumEstadoCivil EstadoCivil { get; set; }
         public EnumGenero Genero { get; set; }
 
@@ -38,6 +41,8 @@ namespace StageProject.Business
             cvm.Idade = client.Idade;
             cvm.EstadoCivil = client.EstadoCivil;
             cvm.Genero = client.Genero;
+            cvm.NumeroAddresses = db.Endereco.Count(t => t.Cliente_Id == client.Id);
+            cvm.NumeroTelefones = db.Telefone.Count(t => t.IdCliente == client.Id);
             return cvm;
         }
 
@@ -95,8 +100,6 @@ namespace StageProject.Business
         {
             var idClient = db.Cliente.Where(t => t.Id == id).FirstOrDefault();
             db.Cliente.Remove(idClient);
-            var idTelefone = db.Telefone.Where(t => t.Id == id).FirstOrDefault();
-            db.Telefone.Remove(idTelefone);
             db.SaveChanges();
         }
 

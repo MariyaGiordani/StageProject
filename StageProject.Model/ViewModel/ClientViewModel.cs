@@ -35,5 +35,11 @@ namespace StageProject.Model.ViewModel
 
         [Display(Name = "Gender")]
         public EnumGenero Genero { get; set; }
+
+        [Display(Name = "Addresses")]
+        public int NumeroAddresses { get; set; }
+
+        [Display(Name = "Telefones")]
+        public int NumeroTelefones { get; set; }
     }
 }
