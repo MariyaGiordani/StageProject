@@ -25,6 +25,7 @@ namespace StageProject.Business
 
         public EnumEstadoCivil EstadoCivil { get; set; }
         public EnumGenero Genero { get; set; }
+        public virtual TelefoneBusiness TelefoneBusiness { get; set; }
 
         public ClienteBusiness(SqlDatabaseModel _dbinstance)
         {
@@ -43,8 +44,7 @@ namespace StageProject.Business
             cvm.Genero = client.Genero;
             cvm.NumeroAddresses = db.Endereco.Count(t => t.Cliente_Id == client.Id);
             cvm.NumeroTelefones = db.Telefone.Count(t => t.IdCliente == client.Id);
-            //List<Telefone> telefonedb = client.Telefone.ToList();
-            ListTelefone();
+            cvm.TelefoneViewModels = ListTelefone();
             return cvm;
         }
 
@@ -70,8 +70,7 @@ namespace StageProject.Business
 
         public List<ClientViewModel> Get()
         {
-            //var telefone = db.Telefone.Include(t => t.Cliente);
-            var client = db.Cliente;
+            var client = db.Cliente.Include(c => c.Telefone);
             List<Cliente> clientsdb = client.ToList();
             List<ClientViewModel> clients = new List<ClientViewModel>();
             clientsdb.ForEach(
