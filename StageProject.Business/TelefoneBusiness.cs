@@ -13,7 +13,7 @@ namespace StageProject.Business
 {
     public class TelefoneBusiness : ITelefoneBusiness
     {
-        private SqlDatabaseModel db = new SqlDatabaseModel();
+        private SqlDatabaseModel db;
         public int Id { get; set; }        
         public EnumTipoTelefone TipoTelefone { get; set; }        
         public string Numero { get; set; }        
@@ -45,10 +45,22 @@ namespace StageProject.Business
             return telefone;
         }
 
+        public List<TelefoneViewModel> GetTelefone(List<Telefone> telefones)
+        {
+            List<TelefoneViewModel> telefoneModel = new List<TelefoneViewModel>();
+            telefones.ForEach(
+                (dbtelefone) =>
+                {
+                    var tvm = ModelParse(dbtelefone);
+                    telefoneModel.Add(tvm);
+                }
+                );
+            return telefoneModel;
+        }
+
         public List<TelefoneViewModel> Get()
         {
-            var telefone = db.Telefone.Include(t => t.Cliente);
-            //var telefone = db.Telefone;
+            var telefone = db.Telefone;
             List<Telefone> telefonesdb = telefone.ToList();
             List<TelefoneViewModel> telefones = new List<TelefoneViewModel>();
             telefonesdb.ForEach(

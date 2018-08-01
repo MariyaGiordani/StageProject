@@ -14,7 +14,8 @@ namespace StageProject.Business
 {
     public class ClienteBusiness : IClienteBusiness
     {
-        private SqlDatabaseModel db = new SqlDatabaseModel();
+        private SqlDatabaseModel db;
+        private ITelefoneBusiness tb;
         public int Id { get; set; }
         public string CodigoCliente { get; set; }
         public EnumTipoCliente TipoCliente { get; set; }
@@ -25,11 +26,12 @@ namespace StageProject.Business
 
         public EnumEstadoCivil EstadoCivil { get; set; }
         public EnumGenero Genero { get; set; }
-        public virtual TelefoneBusiness TelefoneBusiness { get; set; }
 
-        public ClienteBusiness(SqlDatabaseModel _dbinstance)
+        public ClienteBusiness(SqlDatabaseModel _dbinstance, ITelefoneBusiness telefoneBusiness)
         {
             db = _dbinstance;
+            tb = telefoneBusiness;
+
         }
 
         public ClientViewModel ModelParse(Cliente client)
@@ -44,14 +46,14 @@ namespace StageProject.Business
             cvm.Genero = client.Genero;
             cvm.NumeroAddresses = db.Endereco.Count(t => t.Cliente_Id == client.Id);
             cvm.NumeroTelefones = db.Telefone.Count(t => t.IdCliente == client.Id);
-            cvm.TelefoneViewModels = ListTelefone();
+            List<Telefone> telefones = db.Telefone.Where(t => t.IdCliente == client.Id).ToList();
+            cvm.TelefoneViewModels = ListTelefone(telefones);
             return cvm;
         }
 
-        public List<TelefoneViewModel> ListTelefone()
+        public List<TelefoneViewModel> ListTelefone(List<Telefone> telefones)
         {
-            TelefoneBusiness telefoneBusiness = new TelefoneBusiness(db);
-            List<TelefoneViewModel> ListTelefone = telefoneBusiness.Get();
+            List<TelefoneViewModel> ListTelefone = tb.GetTelefone(telefones);
             return ListTelefone;
         }
 
@@ -70,7 +72,7 @@ namespace StageProject.Business
 
         public List<ClientViewModel> Get()
         {
-            var client = db.Cliente.Include(c => c.Telefone);
+            var client = db.Cliente;
             List<Cliente> clientsdb = client.ToList();
             List<ClientViewModel> clients = new List<ClientViewModel>();
             clientsdb.ForEach(
