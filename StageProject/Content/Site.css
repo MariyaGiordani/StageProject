@@ -30,3 +30,8 @@ textarea {
 .edit-client-address {
     margin-top: 8px;
 }
+
+.list-telephones-client {
+    list-style: none;
+    padding: 0;
+}
