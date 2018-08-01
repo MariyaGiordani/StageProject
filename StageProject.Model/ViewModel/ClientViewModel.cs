@@ -39,7 +39,7 @@ namespace StageProject.Model.ViewModel
         [Display(Name = "Addresses")]
         public int NumeroAddresses { get; set; }
 
-        [Display(Name = "Telefones")]
+        [Display(Name = "Telephones")]
         public int NumeroTelefones { get; set; }
 
         public List<TelefoneViewModel> TelefoneViewModels { get; set; }
