@@ -47,8 +47,8 @@ namespace StageProject.Business
 
         public List<TelefoneViewModel> Get()
         {
-            //var telefone = db.Telefone.Include(t => t.Cliente);
-            var telefone = db.Telefone;
+            var telefone = db.Telefone.Include(t => t.Cliente);
+            //var telefone = db.Telefone;
             List<Telefone> telefonesdb = telefone.ToList();
             List<TelefoneViewModel> telefones = new List<TelefoneViewModel>();
             telefonesdb.ForEach(
@@ -84,8 +84,8 @@ namespace StageProject.Business
 
         public void DeleteExisting(int id)
         {
-            var idTelefone = db.Telefone.Where(t => t.Id == id).FirstOrDefault();
-            db.Telefone.Remove(idTelefone);
+            var telefone = db.Telefone.Where(t => t.Id == id).FirstOrDefault();
+            db.Telefone.Remove(telefone);
             db.SaveChanges();
         }
     }

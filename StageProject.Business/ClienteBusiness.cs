@@ -43,7 +43,16 @@ namespace StageProject.Business
             cvm.Genero = client.Genero;
             cvm.NumeroAddresses = db.Endereco.Count(t => t.Cliente_Id == client.Id);
             cvm.NumeroTelefones = db.Telefone.Count(t => t.IdCliente == client.Id);
+            //List<Telefone> telefonedb = client.Telefone.ToList();
+            ListTelefone();
             return cvm;
+        }
+
+        public List<TelefoneViewModel> ListTelefone()
+        {
+            TelefoneBusiness telefoneBusiness = new TelefoneBusiness(db);
+            List<TelefoneViewModel> ListTelefone = telefoneBusiness.Get();
+            return ListTelefone;
         }
 
         public Cliente DatabaseModelParse(ClientViewModel clientModel)
