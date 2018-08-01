@@ -22,3 +22,11 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.edit-client-phone {
+    margin-top: 8px;
+}
+
+.edit-client-address {
+    margin-top: 8px;
+}

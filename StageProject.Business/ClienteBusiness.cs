@@ -108,8 +108,8 @@ namespace StageProject.Business
 
         public void DeleteExisting(int id)
         {
-            var idClient = db.Cliente.Where(t => t.Id == id).FirstOrDefault();
-            db.Cliente.Remove(idClient);
+            var client = db.Cliente.Where(t => t.Id == id).FirstOrDefault();
+            db.Cliente.Remove(client);
             db.SaveChanges();
         }
 
