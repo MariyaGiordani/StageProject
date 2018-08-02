@@ -17,29 +17,29 @@ namespace StageProject.Model.ViewModel
         [Display(Name = "Id")]
         public int Id { get; set; }
 
-        [Display(Name = "Client Code")]
+        [Display(Name = "Código do Cliente")]
         public string CodigoCliente { get; set; }
 
-        [Display(Name = "Type of client")]
+        [Display(Name = "Tipo do Cliente")]
         public EnumTipoCliente TipoCliente { get; set; }
 
-        [Display(Name = "Name")]
+        [Display(Name = "Nome")]
         public string Nome { get; set; }
 
-        [Display(Name = "Age")]
+        [Display(Name = "Idade")]
         [Range(1, 100)]
         public int Idade { get; set; }
 
-        [Display(Name = "Marital Status")]
+        [Display(Name = "Estado Civil")]
         public EnumEstadoCivil EstadoCivil { get; set; }
 
-        [Display(Name = "Gender")]
+        [Display(Name = "Genero")]
         public EnumGenero Genero { get; set; }
 
-        [Display(Name = "Addresses")]
+        [Display(Name = "Endereços")]
         public int NumeroAddresses { get; set; }
 
-        [Display(Name = "Telephones")]
+        [Display(Name = "Telefones")]
         public int NumeroTelefones { get; set; }
 
         public List<TelefoneViewModel> TelefoneViewModels { get; set; }

@@ -11,13 +11,13 @@ namespace StageProject.Model.ViewModel
         [Display(Name = "Id")]
         public int Id { get; set; }
 
-        [Display(Name = "Telefone type")]
+        [Display(Name = "Tipo de Telefone")]
         public EnumTipoTelefone TipoTelefone { get; set; }
 
-        [Display(Name = "Number")]
+        [Display(Name = "Numero")]
         public string Numero { get; set; }
 
-        [Display(Name = "Client Id")]
+        [Display(Name = "ID do Cliente")]
         public int IdCliente { get; set; }
         //public virtual ClienteBusiness Cliente { get; set; }
     }
