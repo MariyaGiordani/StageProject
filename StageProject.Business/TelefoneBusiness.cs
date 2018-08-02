@@ -75,8 +75,8 @@ namespace StageProject.Business
 
         public TelefoneViewModel Find(int? id)
         {
-            var telefoneId = db.Telefone.Where(t => t.Id == id).FirstOrDefault();
-            var idTelefone = ModelParse(telefoneId);
+            var telefone = db.Telefone.Where(t => t.Id == id).FirstOrDefault();
+            var idTelefone = ModelParse(telefone);
             return idTelefone;
         }
 

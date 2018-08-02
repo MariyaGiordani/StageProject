@@ -27,7 +27,7 @@ namespace StageProject.Business
         [Display(Name = "Complement")]
         public string Complemento { get; set; }
 
-        [Display(Name = "CEP")]
+        [Display(Name = "ZIP Code")]
         public string CEP { get; set; }
 
         [Display(Name = "Neighborhood")]
