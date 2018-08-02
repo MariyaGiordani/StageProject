@@ -2,8 +2,9 @@
 {
     public enum EnumTipoTelefone
     {
-        Home = 0,
-        Work = 1,
-        Mobile = 2
+        FixoParticular = 0,
+        FixoProfissional = 1,
+        CellularParticular = 2,
+        CellularProfissional = 3
     }
 }

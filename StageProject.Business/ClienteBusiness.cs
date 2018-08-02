@@ -87,9 +87,9 @@ namespace StageProject.Business
 
         public ClientViewModel Find(int? id)
         {
-            var clientId = db.Cliente.Where(t => t.Id == id).FirstOrDefault();
-            var idClient = ModelParse(clientId);
-            return idClient;
+            var client = db.Cliente.Where(t => t.Id == id).FirstOrDefault();
+            var _client = ModelParse(client);
+            return _client;
         }
 
         public void CreateNew(ClientViewModel client)

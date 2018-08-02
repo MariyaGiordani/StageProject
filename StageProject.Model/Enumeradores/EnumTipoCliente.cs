@@ -3,7 +3,7 @@ namespace StageProject.StageProject.Model.Enumeradores
 {
     public enum EnumTipoCliente
     {
-        Private = 0, 
-        Legal= 1
+        Fisica = 0,
+        Juridica = 1,
     }
 }

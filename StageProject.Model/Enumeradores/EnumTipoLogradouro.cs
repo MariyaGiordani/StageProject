@@ -2,7 +2,8 @@
 {
     public enum EnumTipoLogradouro
     {
-        Street = 0,
-        Avenue = 1,
+        Rua = 0,
+        Avenida = 1,
+        Travessa = 2,
     }
 }
