@@ -23,6 +23,7 @@ namespace StageProject.App_Start
             container.RegisterType<ISqlDatabaseModel, SqlDatabaseModel>();
             container.RegisterType<ITelefoneBusiness, TelefoneBusiness>();
             container.RegisterType<IClienteBusiness, ClienteBusiness>();
+            container.RegisterType<IEnderecoBusiness, EnderecoBusiness>();
             DependencyResolver.SetResolver(new UnityDependencyResolver(container));
         }
     }

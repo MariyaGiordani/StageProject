@@ -6,24 +6,27 @@ using System.Linq;
 using System.Net;
 using System.Web;
 using System.Web.Mvc;
+using StageProject.Business;
 using StageProject.DataBaseAccess;
+using StageProject.Model.ViewModel;
 
 namespace StageProject.Controllers
 {
     public class EnderecosController : Controller
     {
         private SqlDatabaseModel db = new SqlDatabaseModel();
+        private readonly IEnderecoBusiness _addressBusiness;
 
-        public EnderecosController(SqlDatabaseModel _dbinstance)
+        public EnderecosController(IEnderecoBusiness addressBusiness)
         {
-            db = _dbinstance;
+            _addressBusiness = addressBusiness;
         }
 
         // GET: Enderecos
         public ActionResult Index()
         {
-            var endereco = db.Endereco.Include(e => e.Cliente);
-            return View(endereco.ToList());
+            List<AddressViewModel> addresses = _addressBusiness.Get();
+            return View(addresses);
         }
 
         // GET: Enderecos/Details/5
@@ -33,12 +36,12 @@ namespace StageProject.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Endereco endereco = db.Endereco.Find(id);
-            if (endereco == null)
+            AddressViewModel address = _addressBusiness.Find(id);
+            if (address == null)
             {
                 return HttpNotFound();
             }
-            return View(endereco);
+            return View(address);
         }
 
         // GET: Enderecos/Create
@@ -53,17 +56,16 @@ namespace StageProject.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Cliente_Id,IDEndereco,TipoLogradouro,NomeLogradouro,Complemento,CEP,Bairro,Cidade")] Endereco endereco)
+        public ActionResult Create([Bind(Include = "Id,Cliente_Id,IDEndereco,TipoLogradouro,NomeLogradouro,Complemento,CEP,Bairro,Cidade")] AddressViewModel address)
         {
             if (ModelState.IsValid)
             {
-                db.Endereco.Add(endereco);
-                db.SaveChanges();
+                _addressBusiness.CreateNew(address);
                 return RedirectToAction("Index");
             }
 
-            ViewBag.Cliente_Id = new SelectList(db.Cliente, "Id", "CodigoCliente", endereco.Cliente_Id);
-            return View(endereco);
+            ViewBag.Cliente_Id = new SelectList(db.Cliente, "Id", "CodigoCliente", address.Cliente_Id);
+            return View(address);
         }
 
         // GET: Enderecos/Edit/5
@@ -73,13 +75,13 @@ namespace StageProject.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Endereco endereco = db.Endereco.Find(id);
-            if (endereco == null)
+            AddressViewModel address = _addressBusiness.Find(id);
+            if (address == null)
             {
                 return HttpNotFound();
             }
-            ViewBag.Cliente_Id = new SelectList(db.Cliente, "Id", "CodigoCliente", endereco.Cliente_Id);
-            return View(endereco);
+            ViewBag.Cliente_Id = new SelectList(db.Cliente, "Id", "CodigoCliente", address.Cliente_Id);
+            return View(address);
         }
 
         // POST: Enderecos/Edit/5
@@ -87,16 +89,15 @@ namespace StageProject.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Cliente_Id,IDEndereco,TipoLogradouro,NomeLogradouro,Complemento,CEP,Bairro,Cidade")] Endereco endereco)
+        public ActionResult Edit([Bind(Include = "Id,Cliente_Id,IDEndereco,TipoLogradouro,NomeLogradouro,Complemento,CEP,Bairro,Cidade")] AddressViewModel address)
         {
             if (ModelState.IsValid)
             {
-                db.Entry(endereco).State = EntityState.Modified;
-                db.SaveChanges();
+                _addressBusiness.EditNew(address);
                 return RedirectToAction("Index");
             }
-            ViewBag.Cliente_Id = new SelectList(db.Cliente, "Id", "CodigoCliente", endereco.Cliente_Id);
-            return View(endereco);
+            ViewBag.Cliente_Id = new SelectList(db.Cliente, "Id", "CodigoCliente", address.Cliente_Id);
+            return View(address);
         }
 
         // GET: Enderecos/Delete/5
@@ -106,12 +107,12 @@ namespace StageProject.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Endereco endereco = db.Endereco.Find(id);
-            if (endereco == null)
+            AddressViewModel address = _addressBusiness.Find(id);
+            if (address == null)
             {
                 return HttpNotFound();
             }
-            return View(endereco);
+            return View(address);
         }
 
         // POST: Enderecos/Delete/5
@@ -119,9 +120,7 @@ namespace StageProject.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Endereco endereco = db.Endereco.Find(id);
-            db.Endereco.Remove(endereco);
-            db.SaveChanges();
+            _addressBusiness.DeleteExisting(id);
             return RedirectToAction("Index");
         }
 

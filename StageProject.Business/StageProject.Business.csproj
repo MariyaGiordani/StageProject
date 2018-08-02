@@ -45,6 +45,7 @@
     <Compile Include="ClienteBusiness.cs" />
     <Compile Include="EnderecoBusiness.cs" />
     <Compile Include="IClienteBusiness.cs" />
+    <Compile Include="IEnderecoBusiness.cs" />
     <Compile Include="ITelefoneBusiness.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="TelefoneBusiness.cs" />

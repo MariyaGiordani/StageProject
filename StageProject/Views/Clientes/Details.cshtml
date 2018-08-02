@@ -67,6 +67,23 @@
             @Html.DisplayFor(model => model.NumeroAddresses)
         </dd>
 
+        @if (Model.AddressesViewModels.Any())
+        {
+            <dt>
+                @Html.DisplayName("Lista de endereços")
+            </dt>
+
+            <dd>
+                <ul class="list-addresses-client">
+                    @foreach (var info in Model.AddressesViewModels)
+                    {
+                        <li>@info.TipoLogradouro : @info.NomeLogradouro, @info.Complemento</li>
+                        <li> CEP: @info.CEP, @info.Bairro, @info.Cidade</li>
+                    }
+                </ul>
+            </dd>
+        }
+
         <dt>
             @Html.DisplayNameFor(model => model.NumeroTelefones)
         </dt>
@@ -74,15 +91,15 @@
         <dd>
             @Html.DisplayFor(model => model.NumeroTelefones)
         </dd>
-        @if (Model.TelefoneViewModels.Any())
+        @if (Model.TelefonesViewModels.Any())
         {
             <dt>
-                @Html.DisplayName("List of Telephones")
+                @Html.DisplayName("Lista de Telefones")
             </dt>
 
             <dd>
                 <ul class="list-telephones-client">
-                    @foreach (var info in Model.TelefoneViewModels)
+                    @foreach (var info in Model.TelefonesViewModels)
                     {
                         <li>@info.TipoTelefone - @info.Numero</li>
                     }

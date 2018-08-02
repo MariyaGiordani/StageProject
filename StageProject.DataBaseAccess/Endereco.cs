@@ -8,7 +8,7 @@ namespace StageProject.DataBaseAccess
     using System.Data.Entity.Spatial;
 
     [Table("Endereco")]
-    public partial class Endereco
+    public partial class Endereco 
     {
         public int Id { get; set; }
 

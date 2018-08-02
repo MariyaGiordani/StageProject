@@ -16,6 +16,7 @@ namespace StageProject.Business
     {
         private SqlDatabaseModel db;
         private ITelefoneBusiness tb;
+        private IEnderecoBusiness eb;
         public int Id { get; set; }
         public string CodigoCliente { get; set; }
         public EnumTipoCliente TipoCliente { get; set; }
@@ -27,11 +28,11 @@ namespace StageProject.Business
         public EnumEstadoCivil EstadoCivil { get; set; }
         public EnumGenero Genero { get; set; }
 
-        public ClienteBusiness(SqlDatabaseModel _dbinstance, ITelefoneBusiness telefoneBusiness)
+        public ClienteBusiness(SqlDatabaseModel _dbinstance, ITelefoneBusiness telefoneBusiness, IEnderecoBusiness enderecoBusiness)
         {
             db = _dbinstance;
             tb = telefoneBusiness;
-
+            eb = enderecoBusiness;
         }
 
         public ClientViewModel ModelParse(Cliente client)
@@ -47,7 +48,9 @@ namespace StageProject.Business
             cvm.NumeroAddresses = db.Endereco.Count(t => t.Cliente_Id == client.Id);
             cvm.NumeroTelefones = db.Telefone.Count(t => t.IdCliente == client.Id);
             List<Telefone> telefones = db.Telefone.Where(t => t.IdCliente == client.Id).ToList();
-            cvm.TelefoneViewModels = ListTelefone(telefones);
+            cvm.TelefonesViewModels = ListTelefone(telefones);
+            List<Endereco> addresses = db.Endereco.Where(t => t.Cliente_Id == client.Id).ToList();
+            cvm.AddressesViewModels = ListAddress(addresses);
             return cvm;
         }
 
@@ -55,6 +58,12 @@ namespace StageProject.Business
         {
             List<TelefoneViewModel> ListTelefone = tb.GetTelefone(telefones);
             return ListTelefone;
+        }
+
+        public List<AddressViewModel> ListAddress(List<Endereco> addresses)
+        {
+            List<AddressViewModel> ListAddress = eb.GetAddress(addresses);
+            return ListAddress;
         }
 
         public Cliente DatabaseModelParse(ClientViewModel clientModel)
@@ -78,8 +87,8 @@ namespace StageProject.Business
             clientsdb.ForEach(
                 (dbclient) =>
                 {
-                    var tvm = ModelParse(dbclient);
-                    clients.Add(tvm);
+                    var cvm = ModelParse(dbclient);
+                    clients.Add(cvm);
                 }
                 );
             return clients;

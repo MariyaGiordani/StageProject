@@ -19,6 +19,5 @@ namespace StageProject.Model.ViewModel
 
         [Display(Name = "ID do Cliente")]
         public int IdCliente { get; set; }
-        //public virtual ClienteBusiness Cliente { get; set; }
     }
 }
