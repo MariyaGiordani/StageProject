@@ -55,6 +55,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModel\AddressViewModel.cs" />
     <Compile Include="ViewModel\ClientViewModel.cs" />
+    <Compile Include="ViewModel\StarWars\Character.cs" />
+    <Compile Include="ViewModel\StarWars\Film.cs" />
+    <Compile Include="ViewModel\StarWars\Planet.cs" />
+    <Compile Include="ViewModel\StarWars\Specie.cs" />
+    <Compile Include="ViewModel\StarWars\Starship.cs" />
+    <Compile Include="ViewModel\StarWars\Vehicule.cs" />
     <Compile Include="ViewModel\TelefoneViewModel.cs" />
   </ItemGroup>
   <ItemGroup />
