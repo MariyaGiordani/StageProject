@@ -50,6 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Character.cs" />
     <Compile Include="Cliente.cs" />
     <Compile Include="Endereco.cs" />
     <Compile Include="ISqlDatabaseModel.cs" />

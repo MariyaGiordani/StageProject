@@ -15,6 +15,7 @@ namespace StageProject.DataBaseAccess
         public virtual DbSet<Cliente> Cliente { get; set; }
         public virtual DbSet<Endereco> Endereco { get; set; }
         public virtual DbSet<Telefone> Telefone { get; set; }
+        public virtual DbSet<Character> Character { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -65,5 +66,7 @@ namespace StageProject.DataBaseAccess
                 .Property(e => e.Numero)
                 .IsUnicode(false);
         }
+
+        //public System.Data.Entity.DbSet<StageProject.DataBaseAccess.Character> Characters { get; set; }
     }
 }

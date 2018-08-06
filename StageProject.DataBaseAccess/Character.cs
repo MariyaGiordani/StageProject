@@ -2,16 +2,24 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StageProject.Model.ViewModel.StarWars
+namespace StageProject.DataBaseAccess
 {
-    class CharacterViewModel
+    [Table("Character")]
+    public class Character
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        //public Character()
+        //{
+
+        //}
+
         [Display(Name = "Id")]
-        public string Id { get; set; }
+        public int Id { get; set; }
 
         [Display(Name = "Nome")]
         public string Name { get; set; }
@@ -52,9 +60,9 @@ namespace StageProject.Model.ViewModel.StarWars
         [Display(Name = "Naves Estelares")]
         public string AllStarships { get; set; }
 
-        public List<FilmViewModel> Films { get; set; }
-        public List<SpecieViewModel> Species { get; set; }
-        public List<VehiculeViewModel> Vehicules { get; set; }
-        public List<StarshipViewModel> Starships { get; set; }
+        //public List<Film> Films { get; set; }
+        //public List<Specie> Species { get; set; }
+        //public List<Vehicule> Vehicules { get; set; }
+        //public List<Starship> Starships { get; set; }
     }
 }

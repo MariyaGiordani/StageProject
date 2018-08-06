@@ -7,5 +7,6 @@ namespace StageProject.DataBaseAccess
         DbSet<Cliente> Cliente { get; set; }
         DbSet<Endereco> Endereco { get; set; }
         DbSet<Telefone> Telefone { get; set; }
+        //DbSet<Character> Character { get; set; }
     }
 }
