@@ -34,8 +34,7 @@ namespace StageProject.Business.Helper
 
         public T[] GetArrayFromJSONString<T>(string json) where T : new()
         {
-            using (MemoryStream stream = new MemoryStream(
-                Encoding.UTF8.GetBytes(json)))
+            using (MemoryStream stream = new MemoryStream(Encoding.UTF8.GetBytes(json)))
             {
                 DataContractJsonSerializer serializer = new DataContractJsonSerializer(typeof(T[]));
                 return (T[])serializer.ReadObject(stream);

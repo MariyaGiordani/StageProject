@@ -1,4 +1,5 @@
-﻿using StageProject.DataBaseAccess;
+﻿using StageProject.Business.Helper;
+using StageProject.DataBaseAccess;
 using StageProject.Model.ViewModel.StarWars;
 using StageProject.StageProject.Model.Enumeradores;
 using System;
@@ -37,7 +38,18 @@ namespace StageProject.Business
         public CharacterBusiness (SqlDatabaseModel _dbinstance)
         {
             db = _dbinstance;
+
         }
+
+        public void ConnectionJson()
+        {
+            string json = "https://swapi.co/api/people/";
+            JSONHelper jh =new JSONHelper();
+            string jsonString = jh.GetJSONString(json);
+
+            jh.GetObjectFromJSONString<CharacterViewModel>(jsonString);
+        }
+
 
         public CharacterViewModel ModelParse(Character character)
         {
