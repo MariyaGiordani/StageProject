@@ -1,5 +1,6 @@
 ﻿using StageProject.Business.Helper;
 using StageProject.DataBaseAccess;
+using StageProject.Model;
 using StageProject.Model.ViewModel.StarWars;
 using StageProject.StageProject.Model.Enumeradores;
 using System;
@@ -23,7 +24,7 @@ namespace StageProject.Business
         public string Skin_color { get; set; }
         public string Eye_color { get; set; }
         public string Birth_year { get; set; }
-        public string Genero { get; set; }
+        public string Gender { get; set; }
         public string Homeworld { get; set; }
         public string AllFilms { get; set; }
         public string TypeSpecies { get; set; }
@@ -41,15 +42,20 @@ namespace StageProject.Business
 
         }
 
-        public void ConnectionJson()
+        public List<CharacterViewModel> ConnectionJson()
         {
-            string json = "https://swapi.co/api/people/";
-            JSONHelper jh =new JSONHelper();
-            string jsonString = jh.GetJSONString(json);
-
-            jh.GetObjectFromJSONString<CharacterViewModel>(jsonString);
+            JSONHelper jh = new JSONHelper();
+            string url = "https://swapi.co/api/people/?page=1";
+            List<CharacterViewModel> characters = new List<CharacterViewModel>();
+            while (url != null)
+            {
+                string jsonString = jh.GetJSONString(url);
+                var result = jh.GetObjectFromJSONString<PagedResultModel<CharacterViewModel>>(jsonString);
+                characters.AddRange(result.results);
+                url = result.next;
+            }
+            return characters;
         }
-
 
         public CharacterViewModel ModelParse(Character character)
         {
@@ -61,12 +67,8 @@ namespace StageProject.Business
             cvm.Hair_color = character.Hair_color;
             cvm.Skin_color = character.Skin_color;
             cvm.Birth_year= character.Birth_year;
-            cvm.Genero = character.Genero;
+            cvm.Gender = character.Gender;
             cvm.Homeworld = character.Homeworld;
-            cvm.AllFilms = character.AllFilms;
-            cvm.TypeSpecies = character.TypeSpecies;
-            cvm.AllVehicles = character.AllVehicles;
-            cvm.AllStarships = character.AllStarships;
             return cvm;
         }
 
@@ -81,12 +83,8 @@ namespace StageProject.Business
             character.Hair_color = characterModel.Hair_color;
             character.Skin_color = characterModel.Skin_color;
             character.Birth_year = characterModel.Birth_year;
-            character.Genero = characterModel.Genero;
+            character.Gender = characterModel.Gender;
             character.Homeworld = characterModel.Homeworld;
-            character.AllFilms = characterModel.AllFilms;
-            character.TypeSpecies = characterModel.TypeSpecies;
-            character.AllVehicles = characterModel.AllVehicles;
-            character.AllStarships = characterModel.AllStarships;
             return character;
         }
 

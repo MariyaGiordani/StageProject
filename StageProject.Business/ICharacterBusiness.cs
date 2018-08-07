@@ -13,5 +13,8 @@ namespace StageProject.Business
         CharacterViewModel Find(int? id);
         List<CharacterViewModel> Get();
         CharacterViewModel ModelParse(Character character);
+
+
+        List<CharacterViewModel> ConnectionJson();
     }
 }
