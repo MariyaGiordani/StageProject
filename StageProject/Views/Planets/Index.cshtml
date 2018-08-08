@@ -1,0 +1,88 @@
+﻿@model IEnumerable<StageProject.Model.ViewModel.StarWars.PlanetViewModel>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RotationPeriod)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OrbitalPeriod)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Diameter)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Climate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Gravity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Terrain)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SurfaceWater)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Population)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.Residents)
+        </th>*@
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RotationPeriod)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OrbitalPeriod)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Diameter)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Climate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Gravity)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Terrain)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SurfaceWater)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Population)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.Residents)
+        </td>*@
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

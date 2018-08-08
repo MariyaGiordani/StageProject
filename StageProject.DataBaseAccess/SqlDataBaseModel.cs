@@ -17,6 +17,7 @@ namespace StageProject.DataBaseAccess
         public virtual DbSet<Telefone> Telefone { get; set; }
         public virtual DbSet<Character> Character { get; set; }
         public virtual DbSet<Film> Film { get; set; }
+        public virtual DbSet<Planet> Planet { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

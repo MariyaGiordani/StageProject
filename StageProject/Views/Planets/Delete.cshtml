@@ -1,0 +1,105 @@
+﻿@model StageProject.Model.ViewModel.StarWars.PlanetViewModel
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Planet</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RotationPeriod)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RotationPeriod)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OrbitalPeriod)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrbitalPeriod)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Diameter)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Diameter)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Climate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Climate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Gravity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Gravity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Terrain)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Terrain)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SurfaceWater)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SurfaceWater)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Population)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Population)
+        </dd>
+
+        @*<dt>
+            @Html.DisplayNameFor(model => model.Residents)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Residents)
+        </dd>*@
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

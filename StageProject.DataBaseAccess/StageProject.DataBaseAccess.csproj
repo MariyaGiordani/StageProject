@@ -55,6 +55,7 @@
     <Compile Include="Endereco.cs" />
     <Compile Include="Film.cs" />
     <Compile Include="ISqlDatabaseModel.cs" />
+    <Compile Include="Planet.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SqlDatabaseModel.cs" />
     <Compile Include="Telefone.cs" />

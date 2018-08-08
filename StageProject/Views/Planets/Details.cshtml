@@ -1,0 +1,99 @@
+﻿@model StageProject.Model.ViewModel.StarWars.PlanetViewModel
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Planet</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RotationPeriod)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RotationPeriod)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OrbitalPeriod)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrbitalPeriod)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Diameter)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Diameter)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Climate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Climate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Gravity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Gravity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Terrain)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Terrain)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SurfaceWater)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SurfaceWater)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Population)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Population)
+        </dd>
+
+        @*<dt>
+            @Html.DisplayNameFor(model => model.Residents)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Residents)
+        </dd>*@
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
