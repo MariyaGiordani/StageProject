@@ -26,7 +26,12 @@
                     <li>@Html.ActionLink("Clientes", "Index", "Clientes")</li>
                     <li>@Html.ActionLink("Endereços", "Index", "Enderecos")</li>
                     <li>@Html.ActionLink("Telefones", "Index", "Telefones")</li>
-                    <li>@Html.ActionLink("Personagens", "Index", "Characters")</li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Star Wars <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li>@Html.ActionLink("Personagens", "Index", "Characters")</li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
         </div>

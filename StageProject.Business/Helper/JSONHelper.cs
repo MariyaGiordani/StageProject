@@ -28,21 +28,6 @@ namespace StageProject.Business.Helper
         {
             var jsonObject = JsonConvert.DeserializeObject<T>(json);
             return jsonObject;
-
-            //using (MemoryStream stream = new MemoryStream(Encoding.UTF8.GetBytes(json)))
-            //{
-            //    DataContractJsonSerializer serializer = new DataContractJsonSerializer(typeof(T));
-            //    return (T)serializer.ReadObject(stream);
-            //}
-        }
-
-        public T[] GetArrayFromJSONString<T>(string json) where T : new()
-        {
-            using (MemoryStream stream = new MemoryStream(Encoding.UTF8.GetBytes(json)))
-            {
-                DataContractJsonSerializer serializer = new DataContractJsonSerializer(typeof(T[]));
-                return (T[])serializer.ReadObject(stream);
-            }
         }
     }
 }

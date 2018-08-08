@@ -80,6 +80,7 @@ namespace StageProject.Business
             cvm.Mass = character.Mass;
             cvm.Hair_color = character.Hair_color;
             cvm.Skin_color = character.Skin_color;
+            cvm.Eye_color = character.Eye_color;
             cvm.Birth_year= character.Birth_year;
             cvm.Gender = character.Gender;
             cvm.Homeworld = character.Homeworld;
@@ -96,6 +97,7 @@ namespace StageProject.Business
             character.Mass = characterModel.Mass;
             character.Hair_color = characterModel.Hair_color;
             character.Skin_color = characterModel.Skin_color;
+            character.Eye_color = characterModel.Eye_color;
             character.Birth_year = characterModel.Birth_year;
             character.Gender = characterModel.Gender;
             character.Homeworld = characterModel.Homeworld;

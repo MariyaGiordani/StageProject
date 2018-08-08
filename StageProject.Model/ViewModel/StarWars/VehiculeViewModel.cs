@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace StageProject.Model.ViewModel.StarWars
 {
-    class VehiculeViewModel
+    public class VehiculeViewModel
     {
         [Display(Name = "Nome")]
         public string Name { get; set; }

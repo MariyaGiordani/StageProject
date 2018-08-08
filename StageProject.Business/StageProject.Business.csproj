@@ -49,9 +49,11 @@
     <Compile Include="CharacterBusiness.cs" />
     <Compile Include="ClienteBusiness.cs" />
     <Compile Include="EnderecoBusiness.cs" />
+    <Compile Include="FilmBusiness.cs" />
     <Compile Include="ICharacterBusiness.cs" />
     <Compile Include="IClienteBusiness.cs" />
     <Compile Include="IEnderecoBusiness.cs" />
+    <Compile Include="IFilmBusiness.cs" />
     <Compile Include="ITelefoneBusiness.cs" />
     <Compile Include="Helper\JSONHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

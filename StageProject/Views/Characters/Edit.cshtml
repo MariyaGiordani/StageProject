@@ -1,4 +1,4 @@
-﻿@model StageProject.DataBaseAccess.Character
+﻿@model StageProject.Model.ViewModel.StarWars.CharacterViewModel
 
 @{
     ViewBag.Title = "Edit";
@@ -11,7 +11,7 @@
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
+
     <div class="form-horizontal">
         <h4>Character</h4>
         <hr />

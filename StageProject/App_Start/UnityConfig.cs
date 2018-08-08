@@ -25,6 +25,7 @@ namespace StageProject.App_Start
             container.RegisterType<IClienteBusiness, ClienteBusiness>();
             container.RegisterType<IEnderecoBusiness, EnderecoBusiness>();
             container.RegisterType<ICharacterBusiness, CharacterBusiness>();
+            container.RegisterType<IFilmBusiness, FilmBusiness>();
             DependencyResolver.SetResolver(new UnityDependencyResolver(container));
         }
     }
