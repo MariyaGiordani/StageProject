@@ -26,6 +26,7 @@ namespace StageProject.Controllers
         public ActionResult Index()
         {
             List<CharacterViewModel> character = _characterBusiness.Get();
+            //List<CharacterViewModel> character = _characterBusiness.ConnectionJson();
             return View(character);
         }
 

@@ -57,6 +57,20 @@ namespace StageProject.Business
             return characters;
         }
 
+        public List<CharacterViewModel> GetJsonToSQL()
+        {
+            List<CharacterViewModel> characters = ConnectionJson();
+            characters.ForEach(
+                (dbcharacter) =>
+                {
+                    var characterModel = DatabaseModelParse(dbcharacter);
+                    db.Character.Add(characterModel);
+                    db.SaveChanges();
+                }
+                );
+            return characters;
+        }
+
         public CharacterViewModel ModelParse(Character character)
         {
             CharacterViewModel cvm = new CharacterViewModel();
@@ -90,9 +104,17 @@ namespace StageProject.Business
 
         public List<CharacterViewModel> Get()
         {
+            List<CharacterViewModel> characters;
+            if (db.Character.Count() > 0)
+            {
+                characters = new List<CharacterViewModel>();
+            }
+            else
+            {
+                characters = GetJsonToSQL();
+            }
             var character = db.Character;
             List<Character> charactersdb = character.ToList();
-            List<CharacterViewModel> characters = new List<CharacterViewModel>();
             charactersdb.ForEach(
                 (dbcharacter) =>
                 {
