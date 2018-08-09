@@ -24,9 +24,9 @@ namespace StageProject.Business
         public string Terrain { get; set; }
         public string SurfaceWater { get; set; }
         public string Population { get; set; }
-        //public string Residents { get; set; }
+        ////public string Residents { get; set; }
 
-        public List<Film> Films { get; set; }
+        //public List<Film> Films { get; set; }
 
         public PlanetBusiness(SqlDatabaseModel _dbinstance)
         {

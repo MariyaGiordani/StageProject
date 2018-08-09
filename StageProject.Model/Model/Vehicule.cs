@@ -42,12 +42,12 @@ namespace StageProject.Model.Model
         [Display(Name = "Classe de Veículo")]
         public string VehicleClass { get; set; }
 
-        [Display(Name = "Pilots")]
-        public string Pilot { get; set; }
+        //[Display(Name = "Pilots")]
+        //public string Pilot { get; set; }
 
-        [Display(Name = "Filmes")]
-        public string AllFilms { get; set; }
+        //[Display(Name = "Filmes")]
+        //public string AllFilms { get; set; }
 
-        public List<Film> Films { get; set; }
+        //public List<Film> Films { get; set; }
     }
 }

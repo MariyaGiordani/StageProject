@@ -1,0 +1,99 @@
+﻿@model StageProject.Model.ViewModel.StarWars.SpecieViewModel
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Specie</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Classification)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Classification)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Designation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Designation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AverageHeight)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AverageHeight)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SkinColors)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SkinColors)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HairColors)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HairColors)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EyeColor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EyeColor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AverageLifespan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AverageLifespan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Homeworld)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Homeworld)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Language)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Language)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

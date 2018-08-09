@@ -27,6 +27,8 @@ namespace StageProject.App_Start
             container.RegisterType<ICharacterBusiness, CharacterBusiness>();
             container.RegisterType<IFilmBusiness, FilmBusiness>();
             container.RegisterType<IPlanetBusiness, PlanetBusiness>();
+            container.RegisterType<ISpecieBusiness, SpecieBusiness>();
+            container.RegisterType<IStarshipBusiness, StarshipBusiness>();
             DependencyResolver.SetResolver(new UnityDependencyResolver(container));
         }
     }

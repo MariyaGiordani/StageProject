@@ -26,10 +26,10 @@ namespace StageProject.Business
         public string Birth_year { get; set; }
         public string Gender { get; set; }
         public string Homeworld { get; set; }
-        public string AllFilms { get; set; }
-        public string TypeSpecies { get; set; }
-        public string AllVehicles { get; set; }
-        public string AllStarships { get; set; }
+        //public string AllFilms { get; set; }
+        //public string TypeSpecies { get; set; }
+        //public string AllVehicles { get; set; }
+        //public string AllStarships { get; set; }
 
         //public List<Film> Films { get; set; }
         //public List<Specie> Species { get; set; }

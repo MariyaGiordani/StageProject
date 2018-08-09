@@ -28,6 +28,6 @@ namespace StageProject.DataBaseAccess
         public string Population { get; set; }
         //public string Residents { get; set; }
 
-        public List<Film> Films { get; set; }
+        //public List<Film> Films { get; set; }
     }
 }

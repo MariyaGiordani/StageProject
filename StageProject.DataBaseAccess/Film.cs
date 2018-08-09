@@ -25,7 +25,7 @@ namespace StageProject.DataBaseAccess
         public string ReleaseDate { get; set; }
 
 
-        public List<Character> Characters { get; set; }
+        //public List<Character> Characters { get; set; }
         //public List<Planet> Planets { get; set; }
         //public List<Starship> Starships { get; set; }
         //public List<Specie> Species { get; set; }

@@ -55,11 +55,16 @@
     <Compile Include="IEnderecoBusiness.cs" />
     <Compile Include="IFilmBusiness.cs" />
     <Compile Include="IPlanetBusiness.cs" />
+    <Compile Include="ISpecieBusiness.cs" />
+    <Compile Include="IStarshipBusiness.cs" />
     <Compile Include="ITelefoneBusiness.cs" />
     <Compile Include="Helper\JSONHelper.cs" />
     <Compile Include="PlanetBusiness.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SpecieBusiness.cs" />
+    <Compile Include="StarshipBusiness.cs" />
     <Compile Include="TelefoneBusiness.cs" />
+    <Compile Include="VehiculeBusiness.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\StageProject.DataBaseAccess\StageProject.DataBaseAccess.csproj">

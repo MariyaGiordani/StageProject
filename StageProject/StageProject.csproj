@@ -194,6 +194,8 @@
     <Compile Include="Controllers\FilmsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PlanetsController.cs" />
+    <Compile Include="Controllers\SpeciesController.cs" />
+    <Compile Include="Controllers\StarshipsController.cs" />
     <Compile Include="Controllers\TelefonesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -278,6 +280,16 @@
     <Content Include="Views\Planets\Details.cshtml" />
     <Content Include="Views\Planets\Edit.cshtml" />
     <Content Include="Views\Planets\Index.cshtml" />
+    <Content Include="Views\Species\Create.cshtml" />
+    <Content Include="Views\Species\Delete.cshtml" />
+    <Content Include="Views\Species\Details.cshtml" />
+    <Content Include="Views\Species\Edit.cshtml" />
+    <Content Include="Views\Species\Index.cshtml" />
+    <Content Include="Views\Starships\Create.cshtml" />
+    <Content Include="Views\Starships\Delete.cshtml" />
+    <Content Include="Views\Starships\Details.cshtml" />
+    <Content Include="Views\Starships\Edit.cshtml" />
+    <Content Include="Views\Starships\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

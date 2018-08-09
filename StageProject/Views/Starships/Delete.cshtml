@@ -1,0 +1,137 @@
+﻿@model StageProject.Model.ViewModel.StarWars.StarshipViewModel
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Starship</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Model)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Model)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Manufacturer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Manufacturer)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CostInCredits)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CostInCredits)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Length)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Length)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MaxAtmospheringSpeed)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaxAtmospheringSpeed)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Crew)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Crew)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Passengers)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Passengers)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CargoCapacity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CargoCapacity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Consumables)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Consumables)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HyperdriveRating)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HyperdriveRating)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MGLT)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MGLT)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StarshipClass)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StarshipClass)
+        </dd>
+
+        @*<dt>
+            @Html.DisplayNameFor(model => model.Pilot)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pilot)
+        </dd>*@
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

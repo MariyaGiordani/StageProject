@@ -18,6 +18,9 @@ namespace StageProject.DataBaseAccess
         public virtual DbSet<Character> Character { get; set; }
         public virtual DbSet<Film> Film { get; set; }
         public virtual DbSet<Planet> Planet { get; set; }
+        public virtual DbSet<Specie> Specie { get; set; }
+        public virtual DbSet<Starship> Starship { get; set; }
+       // public virtual DbSet<Vehicule> Vehicule { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -68,6 +71,10 @@ namespace StageProject.DataBaseAccess
                 .Property(e => e.Numero)
                 .IsUnicode(false);
         }
+
+        //public System.Data.Entity.DbSet<StageProject.DataBaseAccess.Starship> Starships { get; set; }
+
+        //public System.Data.Entity.DbSet<StageProject.DataBaseAccess.Specie> Species { get; set; }
 
         //public System.Data.Entity.DbSet<StageProject.DataBaseAccess.Film> Films { get; set; }
 
