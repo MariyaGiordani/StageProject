@@ -45,14 +45,15 @@ namespace StageProject.Business
         public List<CharacterViewModel> ConnectionJson()
         {
             JSONHelper jh = new JSONHelper();
-            string url = "https://swapi.co/api/people/?page=1";
+            int count = 1;
+            string url = "https://swapi.co/api/people/";
             List<CharacterViewModel> characters = new List<CharacterViewModel>();
             while (url != null)
             {
-                string jsonString = jh.GetJSONString(url);
-                var result = jh.GetObjectFromJSONString<PagedResultModel<CharacterViewModel>>(jsonString);
-                characters.AddRange(result.results);
-                url = result.next;
+                string jsonString = jh.GetJSONString(url + count);
+                var result = jh.GetObjectFromJSONString<CharacterViewModel>(jsonString);
+                characters.Add(result);
+                ++count;
             }
             return characters;
         }
