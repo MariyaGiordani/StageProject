@@ -59,6 +59,7 @@
     <Compile Include="IStarshipBusiness.cs" />
     <Compile Include="ITelefoneBusiness.cs" />
     <Compile Include="Helper\JSONHelper.cs" />
+    <Compile Include="IVehiculeBusiness.cs" />
     <Compile Include="PlanetBusiness.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SpecieBusiness.cs" />

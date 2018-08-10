@@ -29,6 +29,7 @@ namespace StageProject.App_Start
             container.RegisterType<IPlanetBusiness, PlanetBusiness>();
             container.RegisterType<ISpecieBusiness, SpecieBusiness>();
             container.RegisterType<IStarshipBusiness, StarshipBusiness>();
+            container.RegisterType<IVehiculeBusiness, VehiculeBusiness>();
             DependencyResolver.SetResolver(new UnityDependencyResolver(container));
         }
     }

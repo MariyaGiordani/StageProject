@@ -20,7 +20,7 @@ namespace StageProject.DataBaseAccess
         public virtual DbSet<Planet> Planet { get; set; }
         public virtual DbSet<Specie> Specie { get; set; }
         public virtual DbSet<Starship> Starship { get; set; }
-       // public virtual DbSet<Vehicule> Vehicule { get; set; }
+        public virtual DbSet<Vehicule> Vehicule { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

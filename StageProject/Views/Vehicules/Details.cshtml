@@ -1,0 +1,107 @@
+﻿@model StageProject.Model.ViewModel.StarWars.VehiculeViewModel
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Vehicule</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Model)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Model)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Manufacturer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Manufacturer)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CostInCredits)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CostInCredits)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Length)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Length)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MaxAtmospheringSpeed)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MaxAtmospheringSpeed)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Crew)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Crew)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Passengers)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Passengers)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CargoCapacity)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CargoCapacity)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Consumables)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Consumables)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VehicleClass)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VehicleClass)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

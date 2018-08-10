@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace StageProject.Model.Model
+namespace StageProject.DataBaseAccess
 {
     [Table("Vehicule")]
     public class Vehicule
